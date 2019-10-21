@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// import Register from "./Register"
+import Register from "./Register"
 import "./auth.css";
 import APIManager from "../../components/modules/APIManger"
 
@@ -128,8 +128,7 @@ class Login extends Component {
                         </ModalFooter>
                     </Modal>
 
-                    {/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
-                    {/* <Register /> */}
+                    <Register triggerRender={this.props.triggerRender} />
                 </div>
             </div>
         );
