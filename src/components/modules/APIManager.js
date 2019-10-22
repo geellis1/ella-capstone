@@ -7,12 +7,9 @@ export default {
     get(resource, id) {
       return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
     },
-    getAll(resource, userId) {
-      return fetch(`${remoteURL}/${resource}?userId=${userId}&_sort=timeStamp`).then(result => result.json())
-    },
 
-    getAllMessages(resource){
-      return fetch (`${remoteURL}/${resource}`).then(result => result.json())
+    getAll(resource) {
+      return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
 
     delete(resource ,id) {
@@ -31,6 +28,7 @@ export default {
     }).then(data => data.json())
   },
   update(resource, editedResource) {
+    console.log(editedResource.id)
     return fetch(`${remoteURL}/${resource}/${editedResource.id}`, {
       method: "PUT",
       headers: {
@@ -38,5 +36,9 @@ export default {
       },
       body: JSON.stringify(editedResource)
     }).then(data => data.json());
-  }
+  },
+  getUserPharmacy(resource, userId) {
+    console.log(`${remoteURL}/${resource}?userId=${userId}`)
+    return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
+  },
   }

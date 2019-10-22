@@ -4,12 +4,14 @@ import React, { Component } from "react";
 import APIManager from "../modules/APIManager"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-class AddAppointmentForm extends Component {
+class AddPharmacyForm extends Component {
 
 
     //set the initial state
     state = {
-        appointmentNotes: "",
+        pharmacyName: "",
+        pharmacyNumber: "",
+        pharmacyDetails: "",
         userId: "",
         id: [],
         loadingStatus: true,
@@ -30,19 +32,21 @@ class AddAppointmentForm extends Component {
         this.setState(stateToChange);
     };
 
-    addAppointment = evt => {
+    addYourProfile = evt => {
         evt.preventDefault();
         this.toggle();
-        if (this.state.appointmentNotes === "" ) {
-            window.alert("Please input an appointment");
+        if (this.state.pharmacyName === "" || this.state.pharmacyNumber === "") {
+            window.alert("Please input your pharmacy information");
         } else {
             this.setState({ loadingStatus: true });
-            const addedAppointment = {
+            const addedPharmacy = {
                 userId: this.activeUserId,
-                appointmentNotes: this.state.appointmentNotes,
+                pharmacyName: this.state.pharmacyName,
+                pharmacyNumber: this.state.pharmacyNumber,
+                pharmacyDetails: this.state.pharmacyDetails,
             };
 
-            APIManager.post("appointments", addedAppointment)
+            APIManager.post("pharmacy", addedPharmacy)
                 .then(() => { this.props.getData() }
                 );
         };
@@ -56,30 +60,50 @@ class AddAppointmentForm extends Component {
         return (
             <>
                 {" "}
-                <Button className="addAppointment" onClick={this.toggle}>
-                    Add Appointment</Button>
+                <Button className="addPharmacy" onClick={this.toggle}>
+                    Add Pharmacy</Button>
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                     className={this.props.className}
                 >
                     <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        Create Appointment
+                        Create Pharmacy
 					</ModalHeader>
                     <ModalBody>
                         <form>
                             <fieldset>
                                 <div className="formgrid">
-                                    <label htmlFor="appointmentNotes">
-                                        Appointment Notes:
+                                    <label htmlFor="pharmacyName">
+                                        Pharmacy Name:
 									</label>
                                     <input
                                         type="text"
                                         required
                                         className="form-control"
                                         onChange={this.handleFieldChange}
-                                        id="appointmentNotes"
-                                        value={this.state.appointmentNotes}
+                                        id="pharmacyName"
+                                        value={this.state.pharmacyName}
+                                    />
+
+                                    <label htmlFor="pharmacyNumber">Dosage Details</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        className="form-control"
+                                        onChange={this.handleFieldChange}
+                                        id="pharmacyNumber"
+                                        value={this.state.pharmacyNumber}
+                                    />
+
+                                    <label htmlFor="pharmacyDetails">Add your details:</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        className="form-control"
+                                        onChange={this.handleFieldChange}
+                                        id="pharmacyDetails"
+                                        value={this.state.pharmacyDetails}
                                     />
                                 </div>
                                 <div className="alignRight">
@@ -90,7 +114,7 @@ class AddAppointmentForm extends Component {
                     <ModalFooter>
                         <Button
 className="add"
-                            onClick={this.addAppointment}
+                            onClick={this.addPharmacy}
                         >
                             Add
 						</Button>{" "}
@@ -104,4 +128,4 @@ className="add"
     }
 }
 
-export default AddAppointmentForm;
+export default AddPharmacyForm;

@@ -2,16 +2,17 @@
 
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import APIManager from '../modules/APIManger'
+import APIManager from '../modules/APIManager'
 import "./auth.css";
-
+import {withRouter} from 'react-router-dom'
 
 //Reactstrap Modal code from line 10 to 21
-export default class Register extends Component {
+class Register extends Component {
 
   // Set initial state
   state = {
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     modal: false
@@ -45,7 +46,8 @@ export default class Register extends Component {
         window.alert("Email address already exists")
       } else {
         let newUser = {
-          name: this.state.name,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
           email: this.state.email,
           password: this.state.password,
         };
@@ -53,7 +55,8 @@ export default class Register extends Component {
             .then((createdUser) => {
             sessionStorage.setItem("userId", createdUser.id);
             sessionStorage.setItem("email", this.state.email);
-            sessionStorage.setItem("name", this.state.name);
+            sessionStorage.setItem("firstName", this.state.firstName);
+            sessionStorage.setItem("lastName", this.state.lastName);
             this.props.triggerRender();
 
               //This determines which page you land on upon registration
@@ -66,6 +69,7 @@ export default class Register extends Component {
 
   //Registration modal code goes here. 👇
   render() {
+
     const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
     return (
 		<div>
@@ -90,12 +94,22 @@ export default class Register extends Component {
 								<input
 									onChange={this.handleFieldChange}
 									type="text"
-									id="name"
-									placeholder="Full Name"
+									id="firstName"
+									placeholder="First Name"
 									required=""
 									autoFocus=""
 								/>
-								<label htmlFor="inputName">Name</label>
+								<label htmlFor="firstName"> First Name</label>
+
+                                <input
+									onChange={this.handleFieldChange}
+									type="text"
+									id="lastName"
+									placeholder="Last Name"
+									required=""
+									autoFocus=""
+								/>
+								<label htmlFor="lastName"> Last Name</label>
 
 								<label htmlFor="inputEmail">
 									Email address
@@ -136,3 +150,4 @@ export default class Register extends Component {
   }
 }
 
+export default withRouter(Register)
