@@ -11,7 +11,7 @@ import {  Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
 class ProfileCard extends Component {
 
    state = {
-   pharmacy: "",
+   pharmacy: {},
    userId: "",
    activeUserId: parseInt(sessionStorage.getItem("userId")),
    modal: false
@@ -27,7 +27,7 @@ class ProfileCard extends Component {
 
     getData = () => APIManager.getUserPharmacy("pharmacy", this.state.activeUserId).then(pharmacy => {
         this.setState({
-          pharmacy: pharmacy
+          pharmacy: pharmacy[0]
         })
       });
 
@@ -41,6 +41,7 @@ class ProfileCard extends Component {
       }
 
     render() {
+        console.log("this is the pharmacy on the profile card", this.state.pharmacy)
         let activeUserName = sessionStorage.getItem("firstName")
         const closeBtn = (
             <button className="close" onClick={this.toggle}>
@@ -52,13 +53,13 @@ class ProfileCard extends Component {
             <>
                 <div className="card">
                     <div className="card-content">
-                        <h4>
+                        <h2>
                         hiiii this is the profile card
                             {this.state.pharmacy.pharmacyName}
                             {this.state.pharmacy.pharmacyNumber}
                             {activeUserName}
                             <span className="card-profile-card-title"></span>
-                        </h4>
+                        </h2>
                         <div>
 
                                     <div>
@@ -86,9 +87,9 @@ class ProfileCard extends Component {
                             <ModalBody>
                             
                                 <EditPharmacyForm {...this.props}
-                                    pharmacyId={this.props.pharmacyId}
-                                    getData={this.props.getData}
-                                    activeUserId = {this.state.activeUserId}
+                                    pharmacy={this.state.pharmacy}
+                                    getData={this.getData}
+                                    activeUserId={this.state.activeUserId}
                                     toggle={this.toggle} />
                             </ModalBody>
 

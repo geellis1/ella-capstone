@@ -6,14 +6,11 @@ import { Button, ModalBody, ModalFooter} from "reactstrap";
 class EditPharmacyForm extends Component {
 	//set the initial state
 	state = {
-   pharmacy: "",
    pharmacyName: "",
    pharmacyNumber: "",
    pharmacyDetails: "",
-   userId: "",
    modal: false,
 	loadingStatus: true,
-	modal: false,
 	activeUser: parseInt(sessionStorage.getItem("userId"))
 	};
 
@@ -21,38 +18,34 @@ class EditPharmacyForm extends Component {
 	handleFieldChange = evt => {
 		const stateToChange = {};
 		stateToChange[evt.target.id] = evt.target.value;
-		// this.setState(stateToChange);
+		this.setState(stateToChange);
 	};
 
 	updateExistingPharmacy = evt => {
-	// 	evt.preventDefault();
-	// 	this.setState({ loadingStatus: true });
-	// 	const editedPharmacy = {
-	// 		id: parseInt(this.props.pharmacyId),
-    //         pharmacyName: this.state.pharmacyName,
-    //         pharmacyNumber: this.state.prescriptionNumber,
-    //         pharmacyDetails: this.state.pharmacyDetails,
-	// 		userId: this.props.activeUser
-	// 	};
-	// 	console.log(editedPharmacy)
-	// 	APIManager.update("pharmacy", editedPharmacy)
-	// 		.then(() => { this.props.getData() }
-	// 		);
+		evt.preventDefault();
+		this.setState({ loadingStatus: true });
+		const editedPharmacy = {
+			id: parseInt(this.props.pharmacy.id),
+            pharmacyName: this.state.pharmacyName,
+            pharmacyNumber: this.state.pharmacyNumber,
+            pharmacyDetails: this.state.pharmacyDetails,
+			userId: this.props.pharmacy.userId
+		};
+		console.log(editedPharmacy)
+		APIManager.update("pharmacy", editedPharmacy)
+			.then(() => { this.props.getData() }
+			);
 	}
 
 
 	componentDidMount() {
-		console.log("componentDidMount")
-		APIManager.getUserPharmacy("pharmacy", this.props.activeUserId).then(pharmacy => {
-					console.log("pharmacy", pharmacy)
 					this.setState({
-						pharmacyName: pharmacy.pharmacyName,
-                        pharmacyNumber: pharmacy.pharmacyNumber,
-                        pharmacyDetails: pharmacy.pharmacyDetails,
+						pharmacyName: this.props.pharmacy.pharmacyName,
+                        pharmacyNumber: this.props.pharmacy.pharmacyNumber,
+                        pharmacyDetails: this.props.pharmacy.pharmacyDetails,
 						loadingStatus: false,
-						userId: this.props.activeUser
+						userId: this.props.pharmacy.userId
 					});
-				});
 	};
 
 	render() {
@@ -68,7 +61,7 @@ class EditPharmacyForm extends Component {
 									className="form-control"
 									onChange={this.handleFieldChange}
 									id="pharmacyName"
-									value={this.state.pharmacyName || ""}
+									defaultValue={this.state.pharmacyName}
 								/>
 								<label htmlFor="pharmacyName">Name of Pharmacy</label>
 
@@ -78,7 +71,7 @@ class EditPharmacyForm extends Component {
 									className="form-control"
 									onChange={this.handleFieldChange}
 									id="pharmacyNumber"
-									value={this.state.pharmacyNumber || ""}
+									defaultValue={this.state.pharmacyNumber}
 								/>
 								<label htmlFor="pharmacyNumber">Pharmacy Phone Number</label>
 
@@ -88,7 +81,7 @@ class EditPharmacyForm extends Component {
 									className="form-control"
 									onChange={this.handleFieldChange}
 									id="pharmacyDetails"
-									value={this.state.pharmacyDetails || ""}
+									defaultValue={this.state.pharmacyDetails}
 								/>
 								<label htmlFor="pharmacyDetails">Share details of pharmacy</label>
 							</div>
@@ -99,7 +92,6 @@ class EditPharmacyForm extends Component {
 				<ModalFooter>
 					<Button
 						type="button"
-						disabled={this.state.loadingStatus}
 						onClick={evt => {
 							this.updateExistingPharmacy(evt);
 							this.props.toggle();

@@ -28,6 +28,7 @@ export default {
     }).then(data => data.json())
   },
   update(resource, editedResource) {
+    console.log(editedResource.id)
     return fetch(`${remoteURL}/${resource}/${editedResource.id}`, {
       method: "PUT",
       headers: {
