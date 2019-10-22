@@ -2,7 +2,7 @@
 
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import APIManager from '../modules/APIManger'
+import APIManager from '../modules/APIManager'
 import "./auth.css";
 import {withRouter} from 'react-router-dom'
 

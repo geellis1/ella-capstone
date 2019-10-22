@@ -1,8 +1,8 @@
 
 // Purpose of the file to display individual prescriptions on the dashboard
 import React, { Component } from "react";
-import APIManager from "../../modules/APIManager";
-import EditPrescriptionForm from "./EditPrescriptionForm"
+import APIManager from "../modules/APIManager"
+import EditPrescriptionForm  from "./EditPrescriptionForm"
 import "../prescriptions/prescription.css";
 import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 
@@ -10,10 +10,14 @@ import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class PrescriptionCard extends Component {
 
-    state = {
-        name: "",
-        chatMessage: "",
-        modal: false
+   state = {
+   prescriptions: [],
+   prescriptionName: "",
+   prescriptionDosage: "",
+   activePrescription: "false",
+   prescriptionDetails: "",
+   userId: "",
+   modal: false
     };
 
     activeUserId = parseInt(sessionStorage.getItem("userId"))
@@ -26,7 +30,7 @@ class PrescriptionCard extends Component {
 
 
     handleDelete = id => {
-        APIManager.delete("messages", id)
+        APIManager.delete("prescriptions", id)
             .then(() => { this.props.getData() }
             );
     }
@@ -43,6 +47,7 @@ class PrescriptionCard extends Component {
                 <div className="card">
                     <div className="card-content">
                         <h4>
+                        hiiii this is the prescription card
                             {this.props.name}: {this.props.message}
                             <span className="card-messageTitle"></span>
                         </h4>
@@ -51,15 +56,15 @@ class PrescriptionCard extends Component {
                                 parseInt(this.props.userId) === (this.activeUserId) ?
                                     <div>
                                         <button
-                                            type="button" className="delete-message"
+                                            type="button" className="delete-prescription"
                                             onClick={() =>
-                                                this.handleDelete(this.props.messageId)}
+                                                this.handleDelete(this.props.prescriptionId)}
                                         >
                                             Delete
                                         </button>
 
                                         <button
-                                            type="button" className="edit-message"
+                                            type="button" className="edit-prescription"
                                             onClick={() => {
                                                 this.toggle()
                                             }}
@@ -79,12 +84,12 @@ class PrescriptionCard extends Component {
                             <ModalHeader
                                 toggle={this.toggle}
                                 close={closeBtn}>
-                                Edit Message
+                                Edit Prescription
                             </ModalHeader>
                             <ModalBody>
-                                <EditMessageCard {...this.props}
-                                    messageId={this.props.messageId}
-                                    name={this.props.name}
+                            
+                                <EditPrescriptionForm {...this.props}
+                                    prescriptionId={this.props.prescriptionId}
                                     getData={this.props.getData}
                                     toggle={this.toggle} />
                             </ModalBody>
