@@ -44,12 +44,13 @@ class PrescriptionCard extends Component {
 
         return (
             <>
-                <div className="card">
+                <div className="prescription-card">
                     <div className="card-content">
                         <h4>
                         hiiii this is the prescription card
-                            {this.props.name}: {this.props.message}
-                            <span className="card-messageTitle"></span>
+                        {this.props.prescriptionName}
+                        {this.props.prescriptionDosage}
+                        {this.props.prescriptionDetails}
                         </h4>
                         <div>
                             {

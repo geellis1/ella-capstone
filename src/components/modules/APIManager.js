@@ -38,7 +38,9 @@ export default {
     }).then(data => data.json());
   },
   getUserPharmacy(resource, userId) {
-    console.log(`${remoteURL}/${resource}?userId=${userId}`)
     return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
   },
+  getUserHealth(resource, userId) {
+    return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
+  }
   }

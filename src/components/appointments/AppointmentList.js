@@ -52,11 +52,13 @@ class AppointmentList extends Component {
   render() {
     return (
       <>
+      <div className = "appointment-header">
     <h1>Appointments</h1>
 
      <AddAppointmentForm {...this.props}
       getData={this.getData}
      />
+     </div>
 
         <div className="appointment-container-cards">
           {this.state.appointments.map(appointment => (

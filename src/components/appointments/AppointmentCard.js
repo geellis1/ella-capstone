@@ -5,6 +5,7 @@ import APIManager from "../modules/APIManager"
 import "./appointment.css"
 import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 import EditAppointmentForm from "./EditAppointmentForm"
+import ShowAppointmentDetails from "./AppointmentDetails"
 
 class AppointmentCard extends Component {
 
@@ -12,14 +13,21 @@ class AppointmentCard extends Component {
    appointments: [],
    appointmentNotes: "",
    userId: "",
-   modal: false
+   editModal: false,
+   detailsModal: false
     };
 
     activeUserId = parseInt(sessionStorage.getItem("userId"))
 
-    toggle = () => {
+    toggleEditModal = () => {
         this.setState(prevState => ({
-            modal: !prevState.modal
+            editModal: !prevState.editModal
+        }));
+    }
+
+    toggleDetailsModal = () => {
+        this.setState(prevState => ({
+            detailsModal: !prevState.detailsModal
         }));
     }
 
@@ -31,19 +39,25 @@ class AppointmentCard extends Component {
     }
 
     render() {
-        const closeBtn = (
-            <button className="close" onClick={this.toggle}>
+        const closeBtnEdit = (
+            <button className="close" onClick={this.toggleEditModal}>
                 &times;
             </button>
+
+        );
+        const closeBtnDetails = (
+            <button className="close" onClick={this.toggleDetailsModal}>
+                &times;
+            </button>
+
         );
 
         return (
             <>
-                <div className="card">
+                <div className="appointment-card">
                     <div className="card-content">
                         <h4>
-                        hiiii this is the appointments card
-                            {this.props.name}: {this.props.appointment}
+                            {this.props.appointmentNotes}
                             <span className="card-messageTitle"></span>
                         </h4>
                         <div>
@@ -61,35 +75,58 @@ class AppointmentCard extends Component {
                                         <button
                                             type="button" className="edit-appointment"
                                             onClick={() => {
-                                                this.toggle()
+                                                this.toggleEditModal()
                                             }}
                                         >
                                             Edit
+                                    </button>
+                                    <button
+                                            type="button" className="view-appointment"
+                                            onClick={() => {
+                                                this.toggleDetailsModal()
+                                            }}
+                                        >
+                                            View More Details
                                     </button>
                                     </div>
                                     : null
                             }
                         </div>
-
                         <Modal
-                            isOpen={this.state.modal}
-                            toggle={this.toggle}
+                            isOpen={this.state.editModal}
+                            toggle={this.toggleEditModal}
                             className={this.props.className}
                         >
                             <ModalHeader
-                                toggle={this.toggle}
-                                close={closeBtn}>
+                                toggle={this.toggleEditModal}
+                                close={closeBtnEdit}>
                                 Edit Appointment
                             </ModalHeader>
                             <ModalBody>
                                 <EditAppointmentForm {...this.props}
                                     appointmentId={this.props.appointmentId}
                                     getData={this.props.getData}
-                                    toggle={this.toggle} />
+                                    toggle={this.toggleEditModal} />
                             </ModalBody>
+                    </Modal>
 
-
-                        </Modal>
+                    <Modal
+                            isOpen={this.state.detailsModal}
+                            toggle={this.toggleDetailsModal}
+                            className={this.props.className}
+                        >
+                            <ModalHeader
+                                toggle={this.toggleDetailsModal}
+                                close={closeBtnDetails}>
+                                View Appointment
+                            </ModalHeader>
+                            <ModalBody>
+                                <ShowAppointmentDetails {...this.props}
+                                    appointmentId={this.props.appointmentId}
+                                    getData={this.props.getData}
+                                    toggle={this.toggleDetailsModal} />
+                            </ModalBody>
+                    </Modal>
 
                     </div>
                 </div>

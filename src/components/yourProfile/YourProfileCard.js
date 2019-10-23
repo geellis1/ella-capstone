@@ -51,7 +51,7 @@ class ProfileCard extends Component {
 
         return (
             <>
-                <div className="card">
+                <div className="your-profile-card">
                     <div className="card-content">
                         <h2>
                         hiiii this is the profile card

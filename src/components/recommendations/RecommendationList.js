@@ -54,11 +54,13 @@ class RecommendationList extends Component {
   render() {
     return (
       <>
+    <div className = "recommendations-header">
     <h1>Recommendations</h1>
 
      <AddRecommendationForm {...this.props}
       getData={this.getData}
      />
+     </div>
 
         <div className="recommendation-container-cards">
           {this.state.recommendations.map(recommendation => (
