@@ -7,8 +7,8 @@ class EditHealthProfileForm extends Component {
 	//set the initial state
 	state = {
    bloodType: "",
-   height: "",
    weight: "",
+   height: "",
    allergies: "",
    modal: false,
 	loadingStatus: true,
@@ -26,15 +26,15 @@ class EditHealthProfileForm extends Component {
 		evt.preventDefault();
 		this.setState({ loadingStatus: true });
 		const editedHealthProfile = {
-			id: parseInt(this.props.user.id),
+			id: parseInt(this.props.healthProfile.id),
             bloodType: this.state.bloodType,
             height: this.state.height,
-            weight: this.state.weight,
-            allergies: this.state.allergies,
-			userId: this.props.pharmacy.userId
+			weight: this.state.weight,
+			allergies: this.state.allergies,
+			userId: this.props.healthProfile.userId
 		};
-		console.log(editedHealthProfile)
-		APIManager.update("user", editedHealthProfile)
+		// console.log(editedHealthProfile)
+		APIManager.update("healthProfile", editedHealthProfile)
 			.then(() => { this.props.getData() }
 			);
 	}
@@ -42,12 +42,12 @@ class EditHealthProfileForm extends Component {
 
 	componentDidMount() {
 					this.setState({
-						bloodType: this.props.user.bloodType,
-                        height: this.props.user.height,
-                        weight: this.props.user.weight,
-                        allergies: this.props.user.allergies,
+						bloodType: this.props.healthProfile.bloodType,
+                        height: this.props.healthProfile.height,
+						weight: this.props.healthProfile.weight,
+						allergies: this.props.healthProfile.allergies,
 						loadingStatus: false,
-						userId: this.props.user.userId
+						userId: this.props.healthProfile.userId
 					});
 	};
 
@@ -73,22 +73,22 @@ class EditHealthProfileForm extends Component {
 									required
 									className="form-control"
 									onChange={this.handleFieldChange}
-									id="weight"
-									defaultValue={this.state.weight}
+									id="height"
+									defaultValue={this.state.height}
 								/>
-								<label htmlFor="weight">What is your weight></label>
+								<label htmlFor="height">what is your height?</label>
 
 								<input
 									type="text"
 									required
 									className="form-control"
 									onChange={this.handleFieldChange}
-									id="height"
-									defaultValue={this.state.height}
+									id="weight"
+									defaultValue={this.state.weight}
 								/>
-								<label htmlFor="height">What is your height?</label>
+								<label htmlFor="weight">what is your weight?</label>
 
-                                <input
+								<input
 									type="text"
 									required
 									className="form-control"
@@ -96,7 +96,7 @@ class EditHealthProfileForm extends Component {
 									id="allergies"
 									defaultValue={this.state.allergies}
 								/>
-								<label htmlFor="allergies">Do you have any allergies?</label>
+								<label htmlFor="allergies">What allergies do you have?</label>
 							</div>
 							<div className="alignRight"></div>
 						</fieldset>

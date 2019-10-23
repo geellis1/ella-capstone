@@ -41,7 +41,7 @@ class RecommendationCard extends Component {
 
         return (
             <>
-                <div className="card">
+                <div className="recommendation-card">
                     <div className="card-content">
                         <h4>
                         hiiii this is the recommendations card

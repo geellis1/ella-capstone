@@ -1,0 +1,20 @@
+.mainBody {
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.health-prescriptions {
+display: flex;
+flex-direction: row;
+}
+
+.appointments-container {
+    background-color: red;
+}
+
+.healthProfile-container {
+    background-color: yellow;
+}

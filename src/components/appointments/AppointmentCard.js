@@ -39,11 +39,11 @@ class AppointmentCard extends Component {
 
         return (
             <>
-                <div className="card">
+                <div className="appointment-card">
                     <div className="card-content">
                         <h4>
                         hiiii this is the appointments card
-                            {this.props.name}: {this.props.appointment}
+                            {this.props.appointmentNotes}
                             <span className="card-messageTitle"></span>
                         </h4>
                         <div>
