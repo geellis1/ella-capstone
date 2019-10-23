@@ -4,10 +4,13 @@ import React, { Component } from "react";
 import APIManager from "../modules/APIManager"
 import EditHealthProfileForm from "./EditHealthProfileForm"
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
+import moment from 'moment'
 
 
 
 class HealthProfileCard extends Component {
+    moment =  require('moment');
+    date = moment().format('LLL');
 
     state = {
         healthProfile: {},
@@ -15,7 +18,7 @@ class HealthProfileCard extends Component {
         height: "",
         weight: "",
         allergies: "",
-        // lastUpdate: null,
+        dateUpdated: this.date,
         userId: "",
         activeUserId: parseInt(sessionStorage.getItem("userId")),
         modal: false
@@ -55,10 +58,11 @@ class HealthProfileCard extends Component {
                     <div className="card-content">
                         <h2>
                             hiiii this is the health profile card
-                            {this.state.healthProfile.bloodType}
-                            {this.state.healthProfile.height}
-                            {this.state.healthProfile.weight}
-                            {this.state.healthProfile.allergies}
+                            <h2>Blood Type:</h2><p>{this.state.healthProfile.bloodType}</p>
+                            <h2>Height:</h2><p>{this.state.healthProfile.height}</p>
+                            <h2>Weight:</h2><p>{this.state.healthProfile.weight}</p>
+                            <h2>Allergies:</h2><p>{this.state.healthProfile.allergies}</p>
+                            <h2>Last Update: {this.state.dateUpdated}</h2>
                             <span className="card-profile-card-title"></span>
                         </h2>
                         <div>

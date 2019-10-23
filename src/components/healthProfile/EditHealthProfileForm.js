@@ -2,14 +2,18 @@
 import React, { Component } from "react";
 import APIManager from "../modules/APIManager"
 import { Button, ModalBody, ModalFooter} from "reactstrap";
+import moment from 'moment'
 
 class EditHealthProfileForm extends Component {
+	moment =  require('moment');
+    date = moment().format('LLL');
 	//set the initial state
 	state = {
    bloodType: "",
    weight: "",
    height: "",
    allergies: "",
+   dateUpdated: this.date,
    modal: false,
 	loadingStatus: true,
 	activeUser: parseInt(sessionStorage.getItem("userId"))
@@ -31,7 +35,8 @@ class EditHealthProfileForm extends Component {
             height: this.state.height,
 			weight: this.state.weight,
 			allergies: this.state.allergies,
-			userId: this.props.healthProfile.userId
+			userId: this.props.healthProfile.userId,
+			dateUpdated: this.state.dateUpdated
 		};
 		// console.log(editedHealthProfile)
 		APIManager.update("healthProfile", editedHealthProfile)
@@ -46,6 +51,7 @@ class EditHealthProfileForm extends Component {
                         height: this.props.healthProfile.height,
 						weight: this.props.healthProfile.weight,
 						allergies: this.props.healthProfile.allergies,
+						dateUpdated: this.state.dateUpdated,
 						loadingStatus: false,
 						userId: this.props.healthProfile.userId
 					});
@@ -59,6 +65,7 @@ class EditHealthProfileForm extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
+								<h2>Today's Date: {this.state.dateUpdated}</h2>
 								<input
 									type="text"
 									className="form-control"
