@@ -14,6 +14,9 @@ class AddRecommendationForm extends Component {
         personRecommended: "",
         userId: "",
         id: [],
+        doctors: [],
+        doctor: "",
+        typeOfDoctorId: "1",
         loadingStatus: true,
         modal: false
     };
@@ -44,6 +47,7 @@ class AddRecommendationForm extends Component {
                 nameOfDoctor: this.state.nameOfDoctor,
                 recommendationDetails: this.state.recommendationDetails,
                 personRecommended: this.state.personRecommended,
+                typeOfDoctorId: this.state.typeOfDoctorId,
             };
 
             APIManager.post("recommendations", addedRecommendation)
@@ -51,6 +55,15 @@ class AddRecommendationForm extends Component {
                 );
         };
     }
+    componentDidMount() {
+        APIManager.getAll("doctors", this.state.activeUserId).then(doctors => {
+            console.log(doctors)
+            this.setState({
+                doctors: doctors
+            });
+        });
+    }
+
     render() {
         const closeBtn = (
             <button className="close" onClick={this.toggle}>
@@ -105,6 +118,17 @@ class AddRecommendationForm extends Component {
                                         id="personRecommended"
                                         value={this.state.personRecommended}
                                     />
+                                    <select
+                                        defaultValue="1"
+                                        name="doctors"
+                                        id="typeOfDoctorId"
+                                        onChange={this.handleFieldChange}>
+                                        {this.state.doctors.map(doctor =>
+                                            <option className="var" key={doctor.id}  value={doctor.typeOfDoctor} >
+                                                {doctor.typeOfDoctor}
+                                            </option>
+                                        )}
+                                    </select>
                                 </div>
                                 <div className="alignRight">
                                 </div>

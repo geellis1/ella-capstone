@@ -56,15 +56,13 @@ class HealthProfileCard extends Component {
             <>
                 <div className="health-profile-card">
                     <div className="card-content">
-                        <h2>
-                            hiiii this is the health profile card
+
                             <h2>Blood Type:</h2><p>{this.state.healthProfile.bloodType}</p>
                             <h2>Height:</h2><p>{this.state.healthProfile.height}</p>
                             <h2>Weight:</h2><p>{this.state.healthProfile.weight}</p>
                             <h2>Allergies:</h2><p>{this.state.healthProfile.allergies}</p>
                             <h2>Last Update: {this.state.dateUpdated}</h2>
                             <span className="card-profile-card-title"></span>
-                        </h2>
                         <div>
 
                             <div>

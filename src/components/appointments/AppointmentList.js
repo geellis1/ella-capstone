@@ -57,6 +57,7 @@ class AppointmentList extends Component {
 
      <AddAppointmentForm {...this.props}
       getData={this.getData}
+      triggerRender =  {this.props.triggerRender}
      />
      </div>
 
@@ -68,6 +69,7 @@ class AppointmentList extends Component {
               appointmentNotes={appointment.appointmentNotes}
               userId={appointment.userId}
              deleteAppointment={this.deleteAppointment}
+             triggerRender =  {this.props.triggerRender}
               {...this.props}
               getData={this.getData}
             />

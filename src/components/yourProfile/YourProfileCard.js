@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../modules/APIManager"
 import EditPharmacyForm from "./EditYourPharmacyForm"
-import "../yourProfile/yourProfile.css";
+import "../yourProfile/yourprofile.css";
 import {  Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 

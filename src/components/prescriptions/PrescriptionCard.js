@@ -53,8 +53,7 @@ class PrescriptionCard extends Component {
                         {this.props.prescriptionDetails}
                         </h4>
                         <div>
-                            {
-                                parseInt(this.props.userId) === (this.activeUserId) ?
+
                                     <div>
                                         <button
                                             type="button" className="delete-prescription"
@@ -73,8 +72,7 @@ class PrescriptionCard extends Component {
                                             Edit
                                     </button>
                                     </div>
-                                    : null
-                            }
+
                         </div>
 
                         <Modal
