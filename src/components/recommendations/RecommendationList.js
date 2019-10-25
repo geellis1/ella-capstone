@@ -16,7 +16,7 @@ class RecommendationList extends Component {
     personRecommended: "",
     doctors: [],
     doctor: "",
-    typeOfDoctorId: "1",
+    doctorId: "1",
     typeOfDoctor: "",
     userId: "",
     modal: false
@@ -32,7 +32,7 @@ class RecommendationList extends Component {
 
   deleteMessage = id => {
     APIManager.delete("recommendations", id).then(() => {
-      APIManager.getAll("recommendations").then(newRecommendations => {
+      APIManager.getUserRecommendation("recommendations", this.activeUserId).then(newRecommendations => {
         this.setState({
           recommendations: newRecommendations
         });
@@ -40,7 +40,7 @@ class RecommendationList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("recommendations").then(recommendations => {
+  getData = () => APIManager.getUserRecommendation("recommendations",  this.activeUserId).then(recommendations => {
     this.setState({
       recommendations: recommendations
     })
@@ -48,7 +48,7 @@ class RecommendationList extends Component {
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("recommendations").then(recommendations => {
+    APIManager.getUserRecommendation("recommendations",this.activeUserId).then(recommendations => {
       this.setState({
         recommendations: recommendations
       });
@@ -70,12 +70,13 @@ class RecommendationList extends Component {
           {this.state.recommendations.map(recommendation => (
             <RecommendationCard
               key={recommendation.id}
+              myRec = {recommendation}
               recommendationId={recommendation.id}
               nameOfDoctor={recommendation.nameOfDoctor}
               userId={recommendation.userId}
               recommendationDetails={recommendation.recommendationDetails}
               personRecommended={recommendation.personRecommended}
-              typeOfDoctorId={recommendation.typeOfDoctorId}
+              doctorId={recommendation.doctor.typeOfDoctor}
               deleteRecommendation={this.deleteRecommendation}
               {...this.props}
               getData={this.getData}

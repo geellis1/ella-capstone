@@ -16,7 +16,7 @@ class AddRecommendationForm extends Component {
         id: [],
         doctors: [],
         doctor: "",
-        typeOfDoctorId: "1",
+        doctorId: "1",
         loadingStatus: true,
         modal: false
     };
@@ -47,7 +47,7 @@ class AddRecommendationForm extends Component {
                 nameOfDoctor: this.state.nameOfDoctor,
                 recommendationDetails: this.state.recommendationDetails,
                 personRecommended: this.state.personRecommended,
-                typeOfDoctorId: this.state.typeOfDoctorId,
+                doctorId: this.state.doctorId,
             };
 
             APIManager.post("recommendations", addedRecommendation)
@@ -121,10 +121,10 @@ class AddRecommendationForm extends Component {
                                     <select
                                         defaultValue="1"
                                         name="doctors"
-                                        id="typeOfDoctorId"
+                                        id="doctorId"
                                         onChange={this.handleFieldChange}>
                                         {this.state.doctors.map(doctor =>
-                                            <option className="var" key={doctor.id}  value={doctor.typeOfDoctor} >
+                                            <option className="var" key={doctor.id}  value={doctor.id} >
                                                 {doctor.typeOfDoctor}
                                             </option>
                                         )}

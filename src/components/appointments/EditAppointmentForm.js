@@ -23,7 +23,7 @@ class EditAppointmentForm extends Component {
 		doctors: [],
 		doctor: "",
 		typeOfDoctor: "",
-		typeOfDoctorId: "",
+		doctorId: "",
 		loadingStatus: true,
 		modal: false,
 		appointments: [],
@@ -43,7 +43,7 @@ class EditAppointmentForm extends Component {
 			id: parseInt(this.props.appointmentId),
 			appointmentNotes: this.state.appointmentNotes,
 			userId: this.state.activeUser,
-			typeOfDoctorId: this.state.typeOfDoctorId,
+			doctorId: this.state.doctorId,
 			appointmentDate: this.state.appointmentDate,
 			doctorName: this.state.doctorName,
 			officeAddress: this.state.officeAddress,
@@ -72,7 +72,7 @@ class EditAppointmentForm extends Component {
 					this.setState({
 						doctors: doctors,
 						appointmentNotes: appointment.appointmentNotes,
-						typeOfDoctorId: appointment.typeOfDoctorId,
+						doctorId: appointment.doctorId,
 						appointmentDate: appointment.appointmentDate,
 						doctorName: appointment.doctorName,
 						officeAddress: appointment.officeAddress,
@@ -92,7 +92,7 @@ class EditAppointmentForm extends Component {
 	};
 
 	render() {
-		console.log(this.state.typeOfDoctorId)
+		console.log(this.state.type)
 		return (
 			<>
 				<ModalBody>
@@ -123,12 +123,12 @@ class EditAppointmentForm extends Component {
 									value={this.state.doctorName}
 								/>
 								{this.state.doctors.length > 0 ? <select
-									defaultValue={this.state.typeOfDoctorId}
+									defaultValue={this.state.doctorId}
 									name="doctors"
-									id="doctor"
+									id="doctorId"
 									onChange={this.handleFieldChange}>
 									{this.state.doctors.map(doctor =>
-										<option className="var" key={doctor.id} id={doctor.typeOfDoctor} value={doctor.id} >
+										<option className="var" key={doctor.id} id={doctor.id} value={doctor.id} >
 											{doctor.typeOfDoctor}
 										</option>
 									)}

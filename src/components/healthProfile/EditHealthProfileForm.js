@@ -38,7 +38,7 @@ class EditHealthProfileForm extends Component {
 			userId: this.props.healthProfile.userId,
 			dateUpdated: this.state.dateUpdated
 		};
-		// console.log(editedHealthProfile)
+		console.log(editedHealthProfile)
 		APIManager.update("healthProfile", editedHealthProfile)
 			.then(() => { this.props.getData() }
 			);

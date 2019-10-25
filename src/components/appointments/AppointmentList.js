@@ -34,7 +34,7 @@ class AppointmentList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("appointments").then(appointments => {
+  getData = () => APIManager.getUserAppointment("appointments",  this.activeUserId).then(appointments => {
     this.setState({
       appointments: appointments
     })
@@ -42,7 +42,7 @@ class AppointmentList extends Component {
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("appointments").then(appointments => {
+    APIManager.getUserAppointment("appointments", this.activeUserId).then(appointments => {
       this.setState({
         appointments: appointments
       });

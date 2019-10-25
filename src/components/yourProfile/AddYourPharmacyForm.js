@@ -47,9 +47,19 @@ class AddPharmacyForm extends Component {
             };
 
             APIManager.post("pharmacy", addedPharmacy)
-                .then(() => { this.props.getData() }
+                .then((res) => {
+                    this.props.getData() }
                 );
         };
+    }
+
+    componentDidMount() {
+        APIManager.getAll("pharmacy", this.state.activeUserId).then(pharmacy => {
+            console.log(pharmacy)
+            this.setState({
+                pharmacy: pharmacy
+            });
+        });
     }
     render() {
         const closeBtn = (
@@ -59,17 +69,7 @@ class AddPharmacyForm extends Component {
         );
         return (
             <>
-                {" "}
-                <Button className="addPharmacy" onClick={this.toggle}>
-                    Add Pharmacy</Button>
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}
-                    className={this.props.className}
-                >
-                    <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        Create Pharmacy
-					</ModalHeader>
+
                     <ModalBody>
                         <form>
                             <fieldset>
@@ -113,8 +113,10 @@ class AddPharmacyForm extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button
-className="add"
-                            onClick={this.addPharmacy}
+                        className="add"
+                            onClick={(evt) => {
+                                this.addYourProfile(evt)
+                                this.props.toggle()}}
                         >
                             Add
 						</Button>{" "}
@@ -122,7 +124,7 @@ className="add"
                             Cancel
 						</Button>
                     </ModalFooter>
-                </Modal>
+
             </>
         );
     }

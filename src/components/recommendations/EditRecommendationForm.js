@@ -13,7 +13,7 @@ class EditRecommendationForm extends Component {
 		doctors: [],
 		doctor: "",
 		typeOfDoctor: "",
-		typeOfDoctorId: "",
+		doctorId: "",
 		id: [],
 		userId: "",
 		modal: false,
@@ -36,7 +36,7 @@ class EditRecommendationForm extends Component {
 			nameOfDoctor: this.state.nameOfDoctor,
 			recommendationDetails: this.state.recommendationDetails,
 			personRecommended: this.state.personRecommended,
-			typeOfDoctorId: this.state.typeOfDoctorId,
+			doctorId: this.state.doctorId,
 			userId: this.state.activeUser
 		};
 		console.log(editedRecommendation)
@@ -56,7 +56,7 @@ class EditRecommendationForm extends Component {
 						nameOfDoctor: recommendation.nameOfDoctor,
 						recommendationDetails: recommendation.recommendationDetails,
 						personRecommended: recommendation.personRecommended,
-						typeOfDoctorId: recommendation.typeOfDoctorId,
+						doctorId: recommendation.doctorId,
 						loadingStatus: false,
 					});
 				})
@@ -100,13 +100,13 @@ class EditRecommendationForm extends Component {
 								/>
 								<label htmlFor="personRecommended">Who made this recommendation?</label>
 
-								{this.state.doctors.length > 0 ? <select
-									defaultValue={this.state.typeOfDoctorId}
+								{this.state.doctors.doctorId > 0 ? <select
+									defaultValue={this.state.doctorId}
 									name="doctors"
-									id="doctor"
+									id="doctorId"
 									onChange={this.handleFieldChange}>
 									{this.state.doctors.map(doctor =>
-										<option className="var" key={doctor.id} id={doctor.typeOfDoctor} value={doctor.id} >
+										<option className="var" key={doctor.id} id={doctor.id} value={doctor.id} >
 											{doctor.typeOfDoctor}
 										</option>
 									)}

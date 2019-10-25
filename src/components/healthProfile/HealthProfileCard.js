@@ -37,13 +37,22 @@ class HealthProfileCard extends Component {
     });
 
     componentDidMount() {
-        APIManager.getUserHealth("healthProfile", this.state.activeUserId).then(healthProfile => {
+        APIManager.getUserHealth("healthProfile", this.state.activeUserId)
+        .then(healthProfile => {
+            if(healthProfile.length >  0)  {
             console.log(healthProfile)
             this.setState({
-                healthProfile: healthProfile[0]
-            });
-        });
+                healthProfile: healthProfile[0],
+                height: healthProfile[0].height,
+                weight: healthProfile[0].weight,
+                allergies: healthProfile[0].allergies})}
+            else 
+            {
+                return null;
+            }
+        })
     }
+
 
     render() {
         const closeBtn = (
@@ -57,10 +66,10 @@ class HealthProfileCard extends Component {
                 <div className="health-profile-card">
                     <div className="card-content">
 
-                            <h2>Blood Type:</h2><p>{this.state.healthProfile.bloodType}</p>
-                            <h2>Height:</h2><p>{this.state.healthProfile.height}</p>
-                            <h2>Weight:</h2><p>{this.state.healthProfile.weight}</p>
-                            <h2>Allergies:</h2><p>{this.state.healthProfile.allergies}</p>
+                            <h2>Blood Type:</h2><p>{this.state.bloodType}</p>
+                            <h2>Height:</h2><p>{this.state.height}</p>
+                            <h2>Weight:</h2><p>{this.state.weight}</p>
+                            <h2>Allergies:</h2><p>{this.state.allergies}</p>
                             <h2>Last Update: {this.state.dateUpdated}</h2>
                             <span className="card-profile-card-title"></span>
                         <div>

@@ -15,7 +15,7 @@ class RecommendationCard extends Component {
         personRecommended: "",
         doctors: [],
         doctor: "",
-        typeOfDoctorId: "1",
+        doctorId: "1",
         userId: "",
         modal: false
     };
@@ -52,7 +52,7 @@ class RecommendationCard extends Component {
                         {this.props.nameOfDoctor}
                             {this.props.recommendationDetails}
                             {this.props.personRecommended}
-                            {this.props.typeOfDoctorId}
+                            {this.props.doctorId}
                             <span className="card-messageTitle"></span>
                         </h4>
                         <div>

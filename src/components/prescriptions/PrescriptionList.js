@@ -36,7 +36,7 @@ class PrescriptionList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("prescriptions").then(prescriptions => {
+  getData = () => APIManager.getUserPrescription("prescriptions", this.activeUserId).then(prescriptions => {
     this.setState({
       prescriptions: prescriptions
     })
@@ -44,7 +44,7 @@ class PrescriptionList extends Component {
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("prescriptions").then(prescriptions => {
+    APIManager.getUserPrescription("prescriptions", this.activeUserId).then(prescriptions => {
       this.setState({
         prescriptions: prescriptions
       });
@@ -56,7 +56,7 @@ class PrescriptionList extends Component {
       <>
     <div className = "prescription-header">
     <h1>Prescriptions</h1>
-    
+
 
      <AddPrescriptionForm {...this.props}
       getData={this.getData}

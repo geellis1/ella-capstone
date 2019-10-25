@@ -25,7 +25,7 @@ class AddAppointmentForm extends Component {
         id: [],
         doctors: [],
         doctor: "",
-        typeOfDoctorId: parseInt(1),
+        doctorId: parseInt(1),
         loadingStatus: true,
         modal: false
     };
@@ -54,7 +54,7 @@ class AddAppointmentForm extends Component {
             const addedAppointment = {
                 userId: this.activeUserId,
                 appointmentNotes: this.state.appointmentNotes,
-                typeOfDoctorId: parseInt(this.state.typeOfDoctorId),
+                doctorId: parseInt(this.state.doctorId),
                 appointmentDate: this.state.appointmentDate,
                 doctorName: this.state.doctorName,
                 officeAddress: this.state.officeAddress,
@@ -150,7 +150,7 @@ class AddAppointmentForm extends Component {
                                     <select
                                         defaultValue="1"
                                         name="doctors"
-                                        id="typeOfDoctorId"
+                                        id="doctorId"
                                         onChange={this.handleFieldChange}>
                                         {this.state.doctors.map(doctor =>
                                             <option className="var" key={doctor.id} value={doctor.id} >

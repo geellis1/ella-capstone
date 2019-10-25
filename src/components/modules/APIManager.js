@@ -7,6 +7,9 @@ export default {
     get(resource, id) {
       return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
     },
+    getRecommendation(resource, id) {
+      return fetch(`${remoteURL}/${resource}/?_expand=doctor`).then(result => result.json())
+    },
 
     getAll(resource) {
       return fetch(`${remoteURL}/${resource}`).then(result => result.json())
@@ -39,6 +42,15 @@ export default {
   },
   getUserPharmacy(resource, userId) {
     return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
+  },
+  getUserPrescription(resource, userId) {
+    return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
+  },
+  getUserAppointment(resource, userId) {
+    return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
+  },
+  getUserRecommendation(resource, userId) {
+    return fetch(`${remoteURL}/${resource}?userId=${userId}&_expand=doctor`).then(result => result.json())
   },
   getUserHealth(resource, userId) {
     return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
