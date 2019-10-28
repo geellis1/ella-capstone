@@ -27,6 +27,7 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log(this.triggerRender)
         return (
             <div className="mainBody">
             <section className="mainSection">
@@ -35,7 +36,7 @@ class Dashboard extends Component {
             </section>
             <div className="health-prescriptions">
             <div className="healthProfile-container">
-            <HealthProfileCard {...this.props} />
+            <HealthProfileCard key={this.state.dashboard}{...this.props} />
             </div>
             <PrescriptionList key={this.state.dashboard}{...this.props} />
             </div>

@@ -1,0 +1,70 @@
+.mainBodyLogin {
+    display: flex;
+    flex-direction:row;
+    width: 100vw;
+    height: 75vh;
+}
+.brandImageRight {
+    width: 50vw;
+    height: 30vh;
+}
+.loginImage {
+    width: 100%;
+    height: 100vh;
+}
+
+.registrationDivLeft  {
+    width: 65vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #283676;
+    width: 400px;
+}
+
+.loginForm {
+    margin-left: 100px;
+    margin-top: 75px;
+}
+
+/* signInButton */
+.signIn {
+    background-color: #EFA3AC !important;
+    margin-left: 100px;
+    border-color: #EFA3AC !important;
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.inputCopy {
+    font-size: 20px;
+    color: #283676;
+}
+
+.welcomeText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 55px !important;
+    margin-left: 50px;
+    color: #283676;
+}
+
+.welcomeSubText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px !important;
+    margin-left: 50px;
+    margin-top: 20px;
+    color: #283676;
+}
+
+.registrationLink {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px !important;
+    margin-left: 100px;
+    color: #283676;
+}

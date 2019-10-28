@@ -41,7 +41,7 @@ class PrescriptionCard extends Component {
                 &times;
             </button>
         );
-
+console.log(this.props.prescriptionName)
         return (
             <>
                 <div className="prescription-card">

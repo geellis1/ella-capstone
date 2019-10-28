@@ -5,6 +5,7 @@ import APIManager from "../modules/APIManager"
 import EditHealthProfileForm from "./EditHealthProfileForm"
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import moment from 'moment'
+import AddHealthProfileForm from './AddHealthProfileCard'
 
 
 
@@ -30,9 +31,19 @@ class HealthProfileCard extends Component {
         }));
     }
 
+    addToggle = () => {
+        this.setState(prevState => ({
+            addModal: !prevState.addModal
+        }));
+    }
+
     getData = () => APIManager.getUserHealth("healthProfile", this.state.activeUserId).then(healthProfile => {
         this.setState({
-            healthProfile: healthProfile[0]
+            healthProfile: healthProfile[0],
+            bloodType: healthProfile[0].bloodType,
+            weight: healthProfile[0].weight,
+            height: healthProfile[0].height,
+            allergies: healthProfile[0].allergies
         })
     });
 
@@ -46,7 +57,7 @@ class HealthProfileCard extends Component {
                 height: healthProfile[0].height,
                 weight: healthProfile[0].weight,
                 allergies: healthProfile[0].allergies})}
-            else 
+            else
             {
                 return null;
             }
@@ -73,19 +84,39 @@ class HealthProfileCard extends Component {
                             <h2>Last Update: {this.state.dateUpdated}</h2>
                             <span className="card-profile-card-title"></span>
                         <div>
-
+                        </div>
+                        <Modal
+                            isOpen={this.state.addModal}
+                            toggle={this.addToggle}
+                            className={this.props.className}
+                            >
+                            <ModalHeader
+                                toggle={this.toggle}
+                                close={closeBtn}>
+                                Add Profile Info
+                            </ModalHeader>
+                            <ModalBody>
+                            <AddHealthProfileForm {...this.props}
+                                getData={this.getData}
+                                toggle = {this.addToggle}
+                            />
+                            </ModalBody>
+                            </Modal>
                             <div>
 
-                                <button
-                                    type="button" className="edit-health"
+                            {this.state.height === "" ?
+                            <Button className="addHealthProfile" onClick={this.addToggle}>
+                    Add Health Profile</Button>
+
+                                : <button
+                                    type="button" className="edit-healthProfile"
                                     onClick={() => {
                                         this.toggle()
                                     }}
                                 >
                                     Edit
-                                    </button>
+                                    </button>}
                             </div>
-                        </div>
                         <Modal
                             isOpen={this.state.modal}
                             toggle={this.toggle}

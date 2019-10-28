@@ -4,7 +4,7 @@ import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import APIManager from '../modules/APIManager'
 import "./auth.css";
-import {withRouter} from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 //Reactstrap Modal code from line 10 to 21
 class Register extends Component {
@@ -73,12 +73,12 @@ class Register extends Component {
     const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
     return (
 		<div>
-			<Button
-				className="registrationButton"
+			<Link
+				className="registrationLink"
 				onClick={this.toggle}
 			>
-				Register
-			</Button>
+				Not a user? Create your account!
+			</Link>
 			<Modal
 				isOpen={this.state.modal}
 				toggle={this.toggle}

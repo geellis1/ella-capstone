@@ -70,7 +70,7 @@ class AddAppointmentForm extends Component {
                 prescriptionName: this.state.prescriptionName,
                 prescriptionDosage: this.state.prescriptionDosage,
                 prescriptionDetails: this.state.prescriptionDetails,
-                userId: this.state.activeUserId
+                userId: this.activeUserId
             }
             let appointmentId = ""
             let prescriptionId = ""
@@ -81,7 +81,8 @@ class AddAppointmentForm extends Component {
             .then (() => {
                 let appointmentPrescriptionsObject = {
                     appointmentId: appointmentId,
-                    prescriptionId: prescriptionId
+                    prescriptionId: prescriptionId,
+                    userId: this.state.activeUserId
                 }
                 APIManager.post("appointmentPrescriptions", appointmentPrescriptionsObject)
             })
