@@ -3,18 +3,21 @@
 import React, { Component } from "react";
 import APIManager from "../modules/APIManager"
 import "./recommendation.css"
-import {  Modal, ModalHeader, ModalBody } from "reactstrap";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import EditRecommendationForm from "./EditRecommendationForm"
 
 class RecommendationCard extends Component {
 
-   state = {
-   recommendations: [],
-   nameOfDoctor: "",
-   recommendationDetails: "",
-   personRecommended: "",
-   userId: "",
-   modal: false
+    state = {
+        recommendations: [],
+        nameOfDoctor: "",
+        recommendationDetails: "",
+        personRecommended: "",
+        doctors: [],
+        doctor: "",
+        doctorId: "1",
+        userId: "",
+        modal: false
     };
 
     activeUserId = parseInt(sessionStorage.getItem("userId"))
@@ -32,6 +35,7 @@ class RecommendationCard extends Component {
             );
     }
 
+
     render() {
         const closeBtn = (
             <button className="close" onClick={this.toggle}>
@@ -44,10 +48,11 @@ class RecommendationCard extends Component {
                 <div className="recommendation-card">
                     <div className="card-content">
                         <h4>
-                        hiiii this is the recommendations card
+                            hiiii this is the recommendations card
                         {this.props.nameOfDoctor}
-                        {this.props.recommendationDetails}
-                        {this.props.personRecommended}
+                            {this.props.recommendationDetails}
+                            {this.props.personRecommended}
+                            {this.props.doctorId}
                             <span className="card-messageTitle"></span>
                         </h4>
                         <div>

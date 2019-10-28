@@ -14,6 +14,8 @@ class EditPharmacyForm extends Component {
 	activeUser: parseInt(sessionStorage.getItem("userId"))
 	};
 
+	activeUserId = parseInt(sessionStorage.getItem("userId"))
+
 
 	handleFieldChange = evt => {
 		const stateToChange = {};
@@ -31,7 +33,7 @@ class EditPharmacyForm extends Component {
             pharmacyDetails: this.state.pharmacyDetails,
 			userId: this.props.pharmacy.userId
 		};
-		console.log(editedPharmacy)
+		console.log(this.props.pharmacy.id)
 		APIManager.update("pharmacy", editedPharmacy)
 			.then(() => { this.props.getData() }
 			);

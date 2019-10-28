@@ -3,19 +3,25 @@
 import React, { Component } from "react";
 import APIManager from "../modules/APIManager"
 import EditPharmacyForm from "./EditYourPharmacyForm"
-import "../yourProfile/yourProfile.css";
-import {  Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
+import AddPharmacyForm from "./AddYourPharmacyForm"
+import "../yourProfile/yourprofile.css";
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 
 
 class ProfileCard extends Component {
 
-   state = {
-   pharmacy: {},
-   userId: "",
-   activeUserId: parseInt(sessionStorage.getItem("userId")),
-   modal: false
+    state = {
+        pharmacy: {},
+        pharmacyName: "",
+        pharmacyNumber: "",
+        userId: "",
+        activeUserId: parseInt(sessionStorage.getItem("userId")),
+        addModal: false,
+        modal: false
     };
+
+    activeUserId = parseInt(sessionStorage.getItem("userId"))
 
 
 
@@ -25,20 +31,36 @@ class ProfileCard extends Component {
         }));
     }
 
+   addToggle = () => {
+        this.setState(prevState => ({
+            addModal: !prevState.addModal
+        }));
+    }
+
     getData = () => APIManager.getUserPharmacy("pharmacy", this.state.activeUserId).then(pharmacy => {
+        console.log("ProfileCard: this.getData", pharmacy)
         this.setState({
-          pharmacy: pharmacy[0]
+            pharmacy: pharmacy[0],
+            pharmacyName: pharmacy[0].pharmacyName,
+            pharmacyNumber: pharmacy[0].pharmacyNumber
         })
-      });
+    });
 
     componentDidMount() {
-        APIManager.getUserPharmacy("pharmacy", this.state.activeUserId).then(pharmacy => {
-          console.log(pharmacy)
-            this.setState({
-            pharmacy: pharmacy[0]
-          });
-        });
-      }
+        APIManager.getUserPharmacy("pharmacy", this.state.activeUserId)
+            .then(pharmacy => {
+                if (pharmacy.length > 0) {
+                    this.setState({
+                        pharmacy: pharmacy[0],
+                        pharmacyName: pharmacy[0].pharmacyName,
+                        pharmacyNumber: pharmacy[0].pharmacyNumber
+                    })
+                }
+                else {
+                    return null;
+                }
+            })
+    }
 
     render() {
         console.log("this is the pharmacy on the profile card", this.state.pharmacy)
@@ -53,27 +75,45 @@ class ProfileCard extends Component {
             <>
                 <div className="your-profile-card">
                     <div className="card-content">
-                        <h2>
-                        hiiii this is the profile card
-                            {this.state.pharmacy.pharmacyName}
-                            {this.state.pharmacy.pharmacyNumber}
+                        <h2>hiiii this is the profile card</h2>
+                            <Modal
+                            isOpen={this.state.addModal}
+                            toggle={this.addToggle}
+                            className={this.props.className}
+                            >
+                            <ModalHeader
+                                toggle={this.toggle}
+                                close={closeBtn}>
+                                Add Pharmacy Info
+                            </ModalHeader>
+                            <ModalBody>
+                            <AddPharmacyForm {...this.props}
+                                getData={this.getData}
+                                toggle = {this.addToggle}
+                            />
+                            </ModalBody>
+                            </Modal>
+
+                            {this.state.pharmacyName}
+                            {this.state.pharmacyNumber}
                             {activeUserName}
                             <span className="card-profile-card-title"></span>
-                        </h2>
-                        <div>
 
-                                    <div>
+                            <div>
 
-                                        <button
-                                            type="button" className="edit-pharmacy"
-                                            onClick={() => {
-                                                this.toggle()
-                                            }}
-                                        >
-                                            Edit
-                                    </button>
-                                    </div>
-                        </div>
+                            {this.state.pharmacyName === "" ?
+                            <Button className="addPharmacy" onClick={this.addToggle}>
+                    Add Pharmacy</Button>
+
+                                : <button
+                                    type="button" className="edit-pharmacy"
+                                    onClick={() => {
+                                        this.toggle()
+                                    }}
+                                >
+                                    Edit
+                                    </button>}
+                            </div>
                         <Modal
                             isOpen={this.state.modal}
                             toggle={this.toggle}
@@ -85,7 +125,7 @@ class ProfileCard extends Component {
                                 Edit Pharmacy Info
                             </ModalHeader>
                             <ModalBody>
-                            
+
                                 <EditPharmacyForm {...this.props}
                                     pharmacy={this.state.pharmacy}
                                     getData={this.getData}
@@ -97,8 +137,8 @@ class ProfileCard extends Component {
                         </Modal>
 
                     </div>
-                    </div>
-                    </>
+                </div>
+            </>
         );
 
     }

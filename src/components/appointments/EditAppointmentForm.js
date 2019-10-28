@@ -13,7 +13,9 @@ class EditAppointmentForm extends Component {
 		visitPurpose: "",
 		testsRun: "",
 		diagnosis: "",
-		prescriptionsGiven: "",
+		prescriptionName: "",
+		prescriptionDosage: "",
+		prescriptionDetails: "",
 		nextAppointment: "",
 		appointmentNotes: "",
 		userId: "",
@@ -21,10 +23,11 @@ class EditAppointmentForm extends Component {
 		doctors: [],
 		doctor: "",
 		typeOfDoctor: "",
+		doctorId: "",
 		loadingStatus: true,
 		modal: false,
 		appointments: [],
-		activeUser: parseInt(sessionStorage.getItem("userId"))
+		activeUser: parseInt(sessionStorage.getItem("userId")),
 	};
 
 	handleFieldChange = evt => {
@@ -40,7 +43,7 @@ class EditAppointmentForm extends Component {
 			id: parseInt(this.props.appointmentId),
 			appointmentNotes: this.state.appointmentNotes,
 			userId: this.state.activeUser,
-			typeOfDoctorId: this.state.typeOfDoctorId,
+			doctorId: this.state.doctorId,
 			appointmentDate: this.state.appointmentDate,
 			doctorName: this.state.doctorName,
 			officeAddress: this.state.officeAddress,
@@ -48,7 +51,9 @@ class EditAppointmentForm extends Component {
 			visitPurpose: this.state.visitPurpose,
 			testsRun: this.state.testsRun,
 			diagnosis: this.state.diagnosis,
-			prescriptionsGiven: this.state.prescriptionsGiven,
+			prescriptionName: this.state.prescriptionName,
+			prescriptionDosage: this.state.prescriptionDosage,
+			prescriptionDetails: this.state.prescriptionDetails,
 			nextAppointment: this.state.nextAppointment,
 			appointmentNotes: this.state.appointmentNotes,
 		};
@@ -61,13 +66,13 @@ class EditAppointmentForm extends Component {
 
 	componentDidMount() {
 		return APIManager.get("appointments", this.props.appointmentId)
-			.then(appointment  =>
+			.then(appointment =>
 				APIManager.getAll("doctors", this.state.activeUserId).then(doctors => {
 					console.log(doctors)
 					this.setState({
 						doctors: doctors,
 						appointmentNotes: appointment.appointmentNotes,
-						typeOfDoctorId: appointment.typeOfDoctorId,
+						doctorId: appointment.doctorId,
 						appointmentDate: appointment.appointmentDate,
 						doctorName: appointment.doctorName,
 						officeAddress: appointment.officeAddress,
@@ -75,16 +80,19 @@ class EditAppointmentForm extends Component {
 						visitPurpose: appointment.visitPurpose,
 						testsRun: appointment.testsRun,
 						diagnosis: appointment.diagnosis,
-						prescriptionsGiven: appointment.prescriptionsGiven,
+						prescriptionName: appointment.prescriptionName,
+						prescriptionDosage: appointment.prescriptionDosage,
+						prescriptionDetails: appointment.prescriptionDetails,
 						nextAppointment: appointment.nextAppointment,
 						appointmentNotes: appointment.appointmentNotes,
 						loadingStatus: false,
-				
 					});
 				})
-			)};
+			)
+	};
 
 	render() {
+		console.log(this.state.type)
 		return (
 			<>
 				<ModalBody>
@@ -114,17 +122,17 @@ class EditAppointmentForm extends Component {
 									id="doctorName"
 									value={this.state.doctorName}
 								/>
-								<select
-									value={this.state.typeOfDoctorId}
+								{this.state.doctors.length > 0 ? <select
+									defaultValue={this.state.doctorId}
 									name="doctors"
-									id="doctor"
+									id="doctorId"
 									onChange={this.handleFieldChange}>
 									{this.state.doctors.map(doctor =>
-										<option className="var" key={doctor.id} id={doctor.typeOfDoctor} value={doctor.id} >
+										<option className="var" key={doctor.id} id={doctor.id} value={doctor.id} >
 											{doctor.typeOfDoctor}
 										</option>
 									)}
-								</select>
+								</select> : ""}
 								<label htmlFor="officeAddress">Address</label>
 								<input
 									type="text"
@@ -180,16 +188,37 @@ class EditAppointmentForm extends Component {
 								id="diagnosis"
 								value={this.state.diagnosis} />
 
-							<label htmlFor="prescriptionsGiven">
-								What prescriptions were  you given?:
+							<label htmlFor="prescriptionName">
+								Prescription Name:
 									</label>
 							<input
 								type="text"
 								required
 								className="form-control"
 								onChange={this.handleFieldChange}
-								id="prescriptionsGiven"
-								value={this.state.prescriptionsGiven} />
+								id="prescriptionName"
+								value={this.state.prescriptionName}
+							/>
+
+							<label htmlFor="prescriptionDosage">Dosage Details</label>
+							<input
+								type="text"
+								required
+								className="form-control"
+								onChange={this.handleFieldChange}
+								id="prescriptionDosage"
+								value={this.state.prescriptionDosage}
+							/>
+
+							<label htmlFor="prescriptionDetails">Add your details:</label>
+							<input
+								type="text"
+								required
+								className="form-control"
+								onChange={this.handleFieldChange}
+								id="prescriptionDetails"
+								value={this.state.prescriptionDetails}
+							/>
 
 							<label htmlFor="diagnosis">
 								Appointment diagnosis:

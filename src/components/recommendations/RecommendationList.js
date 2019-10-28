@@ -9,13 +9,17 @@ import "../recommendations/recommendation.css";
 
 class RecommendationList extends Component {
   //define what this component needs to render
-   state = {
+  state = {
     recommendations: [],
     nameOfDoctor: "",
     recommendationDetails: "",
     personRecommended: "",
-   userId: "",
-   modal: false
+    doctors: [],
+    doctor: "",
+    doctorId: "1",
+    typeOfDoctor: "",
+    userId: "",
+    modal: false
   };
 
   activeUserId = parseInt(sessionStorage.getItem("userId"))
@@ -28,7 +32,7 @@ class RecommendationList extends Component {
 
   deleteMessage = id => {
     APIManager.delete("recommendations", id).then(() => {
-      APIManager.getAll("recommendations").then(newRecommendations => {
+      APIManager.getUserRecommendation("recommendations", this.activeUserId).then(newRecommendations => {
         this.setState({
           recommendations: newRecommendations
         });
@@ -36,7 +40,7 @@ class RecommendationList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("recommendations").then(recommendations => {
+  getData = () => APIManager.getUserRecommendation("recommendations",  this.activeUserId).then(recommendations => {
     this.setState({
       recommendations: recommendations
     })
@@ -44,7 +48,7 @@ class RecommendationList extends Component {
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("recommendations").then(recommendations => {
+    APIManager.getUserRecommendation("recommendations",this.activeUserId).then(recommendations => {
       this.setState({
         recommendations: recommendations
       });
@@ -54,24 +58,26 @@ class RecommendationList extends Component {
   render() {
     return (
       <>
-    <div className = "recommendations-header">
-    <h1>Recommendations</h1>
+        <div className="recommendations-header">
+          <h1>Recommendations</h1>
 
-     <AddRecommendationForm {...this.props}
-      getData={this.getData}
-     />
-     </div>
+          <AddRecommendationForm {...this.props}
+            getData={this.getData}
+          />
+        </div>
 
         <div className="recommendation-container-cards">
           {this.state.recommendations.map(recommendation => (
             <RecommendationCard
               key={recommendation.id}
+              myRec = {recommendation}
               recommendationId={recommendation.id}
               nameOfDoctor={recommendation.nameOfDoctor}
               userId={recommendation.userId}
               recommendationDetails={recommendation.recommendationDetails}
               personRecommended={recommendation.personRecommended}
-             deleteRecommendation={this.deleteRecommendation}
+              doctorId={recommendation.doctor.typeOfDoctor}
+              deleteRecommendation={this.deleteRecommendation}
               {...this.props}
               getData={this.getData}
             />

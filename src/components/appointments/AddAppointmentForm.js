@@ -16,14 +16,16 @@ class AddAppointmentForm extends Component {
         visitPurpose: "",
         testsRun: "",
         diagnosis: "",
-        prescriptionsGiven: "",
+        prescriptionName: "",
+        prescriptionDosage: "",
+        prescriptionDetails: "",
         nextAppointment: "",
         appointmentNotes: "",
         userId: "",
         id: [],
         doctors: [],
         doctor: "",
-        typeOfDoctorId: "",
+        doctorId: parseInt(1),
         loadingStatus: true,
         modal: false
     };
@@ -52,7 +54,7 @@ class AddAppointmentForm extends Component {
             const addedAppointment = {
                 userId: this.activeUserId,
                 appointmentNotes: this.state.appointmentNotes,
-                typeOfDoctorId: this.state.typeOfDoctorId,
+                doctorId: parseInt(this.state.doctorId),
                 appointmentDate: this.state.appointmentDate,
                 doctorName: this.state.doctorName,
                 officeAddress: this.state.officeAddress,
@@ -60,13 +62,32 @@ class AddAppointmentForm extends Component {
                 visitPurpose: this.state.visitPurpose,
                 testsRun: this.state.testsRun,
                 diagnosis: this.state.diagnosis,
-                prescriptionsGiven: this.state.prescriptionsGiven,
                 nextAppointment: this.state.nextAppointment,
                 appointmentNotes: this.state.appointmentNotes,
             };
 
+            const addedPrescription = {
+                prescriptionName: this.state.prescriptionName,
+                prescriptionDosage: this.state.prescriptionDosage,
+                prescriptionDetails: this.state.prescriptionDetails,
+                userId: this.state.activeUserId
+            }
+            let appointmentId = ""
+            let prescriptionId = ""
             APIManager.post("appointments", addedAppointment)
-                .then(() => { this.props.getData() }
+            .then(res  => appointmentId=res.id)
+            .then (() => APIManager.post("prescriptions", addedPrescription) )
+            .then ((res ) => prescriptionId=res.id)
+            .then (() => {
+                let appointmentPrescriptionsObject = {
+                    appointmentId: appointmentId,
+                    prescriptionId: prescriptionId
+                }
+                APIManager.post("appointmentPrescriptions", appointmentPrescriptionsObject)
+            })
+            .then(() => { this.props.getData()
+            .then(() => {this.props.triggerRender()})
+            }
                 );
         };
     }
@@ -127,12 +148,12 @@ class AddAppointmentForm extends Component {
                                         value={this.state.doctorName}
                                     />
                                     <select
-                                        defaultValue=""
+                                        defaultValue="1"
                                         name="doctors"
-                                        id="typeofDoctorId"
+                                        id="doctorId"
                                         onChange={this.handleFieldChange}>
                                         {this.state.doctors.map(doctor =>
-                                            <option className="var" key={doctor.id}  value={doctor.id} >
+                                            <option className="var" key={doctor.id} value={doctor.id} >
                                                 {doctor.typeOfDoctor}
                                             </option>
                                         )}
@@ -192,27 +213,38 @@ class AddAppointmentForm extends Component {
                                     id="diagnosis"
                                     value={this.state.diagnosis} />
 
-                                <label htmlFor="prescriptionsGiven">
-                                    What prescriptions were  you given?:
+                                <label htmlFor="prescriptionName">
+                                    Prescription Name:
 									</label>
                                 <input
                                     type="text"
                                     required
                                     className="form-control"
                                     onChange={this.handleFieldChange}
-                                    id="prescriptionsGiven"
-                                    value={this.state.prescriptionsGiven} />
+                                    id="prescriptionName"
+                                    value={this.state.prescriptionName}
+                                />
 
-                                <label htmlFor="diagnosis">
-                                    Appointment diagnosis:
-									</label>
+                                <label htmlFor="prescriptionDosage">Dosage Details</label>
                                 <input
                                     type="text"
                                     required
                                     className="form-control"
                                     onChange={this.handleFieldChange}
-                                    id="diagnosis"
-                                    value={this.state.diagnosis} />
+                                    id="prescriptionDosage"
+                                    value={this.state.prescriptionDosage}
+                                />
+
+                                <label htmlFor="prescriptionDetails">Prescription details:</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="form-control"
+                                    onChange={this.handleFieldChange}
+                                    id="prescriptionDetails"
+                                    value={this.state.prescriptionDetails}
+                                />
+
 
                                 <label htmlFor="nextAppointment">
                                     Next Appointment Date:

@@ -6,7 +6,26 @@ import YourProfileCard from "../components/yourProfile/YourProfileCard"
 import HealthProfileCard from "../components/healthProfile/HealthProfileCard"
 import "../dashboard/dashboard.css";
 
+
+// trigger re-render is here and then set state and then the .then or trigger re-render when you hit save on add appointment form to
+// trigger  re-render on dashboard
+
+
+
 class Dashboard extends Component {
+    state =  {
+        dashboard: true
+    }
+    triggerRender = () => {
+        if (this.state.dashboard  === true)
+        {
+            this.setState({dashboard: false})
+        }
+        else{
+            this.setState({dashboard: true})
+        }
+    }
+
     render() {
         return (
             <div className="mainBody">
@@ -18,10 +37,10 @@ class Dashboard extends Component {
             <div className="healthProfile-container">
             <HealthProfileCard {...this.props} />
             </div>
-            <PrescriptionList {...this.props} />
+            <PrescriptionList key={this.state.dashboard}{...this.props} />
             </div>
             <div className="appointments-container">
-            <AppointmentList {...this.props} />
+            <AppointmentList {...this.props}triggerRender={this.triggerRender} />
             </div>
             </section>
             <section className="rightSection">
@@ -34,4 +53,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default Dashboard

@@ -11,6 +11,7 @@ class AppointmentCard extends Component {
 
    state = {
    appointments: [],
+   prescriptions: [],
    appointmentNotes: "",
    userId: "",
    editModal: false,
