@@ -84,7 +84,8 @@ simplifying our health journey.
                                     id="email"
                                     required=""
                                     autoFocus=""
-                                />
+                                /><i class="far fa-envelope fa-1x"></i>
+
                                 <br></br>
                                 <label className="inputCopy" htmlFor="inputEmail">
                                     Email address
@@ -95,7 +96,7 @@ simplifying our health journey.
                                     type="password"
                                     id="password"
                                     required=""
-                                /><br></br>
+                                /><i class="fas fa-unlock fa-1x"></i><br></br>
                                 <label className="inputCopy" htmlFor="inputPassword">
                                     Password
 									</label>

@@ -68,3 +68,7 @@ input {
     margin-left: 100px;
     color: #283676;
 }
+.fa-envelope, .fa-unlock{
+    color: #283676;
+    margin-right: 50px;
+}

@@ -47,7 +47,6 @@ console.log(this.props.prescriptionName)
                 <div className="prescription-card">
                     <div className="card-content">
                         <h4>
-                        hiiii this is the prescription card
                         {this.props.prescriptionName}
                         {this.props.prescriptionDosage}
                         {this.props.prescriptionDetails}
@@ -60,6 +59,7 @@ console.log(this.props.prescriptionName)
                                             onClick={() =>
                                                 this.handleDelete(this.props.prescriptionId)}
                                         >
+                                        <i class="fas fa-trash-alt fa-1x"></i>
                                             Delete
                                         </button>
 
@@ -69,6 +69,7 @@ console.log(this.props.prescriptionName)
                                                 this.toggle()
                                             }}
                                         >
+                                        <i class="fas fa-edit fa-1x"></i>
                                             Edit
                                     </button>
                                     </div>
@@ -86,7 +87,7 @@ console.log(this.props.prescriptionName)
                                 Edit Prescription
                             </ModalHeader>
                             <ModalBody>
-                            
+
                                 <EditPrescriptionForm {...this.props}
                                     prescriptionId={this.props.prescriptionId}
                                     getData={this.props.getData}

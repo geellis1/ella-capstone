@@ -112,6 +112,7 @@ class AddAppointmentForm extends Component {
             <>
                 {" "}
                 <Button className="addAppointment" onClick={this.toggle}>
+                <i class="fas fa-plus fa-1x"></i>
                     Add Appointment</Button>
                 <Modal
                     isOpen={this.state.modal}

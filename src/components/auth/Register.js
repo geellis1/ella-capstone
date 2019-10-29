@@ -6,7 +6,7 @@ import APIManager from '../modules/APIManager'
 import "./auth.css";
 import { withRouter, Link } from 'react-router-dom'
 
-//Reactstrap Modal code from line 10 to 21
+
 class Register extends Component {
 
   // Set initial state
@@ -14,7 +14,8 @@ class Register extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
+	password: "",
+	profileImageId: "",
     modal: false
   };
 
@@ -49,14 +50,15 @@ class Register extends Component {
           firstName: this.state.firstName,
           lastName: this.state.lastName,
           email: this.state.email,
-          password: this.state.password,
+		  password: this.state.password,
+		  profileImageId: this.state.profileImageId
         };
         APIManager.post("users", newUser)
             .then((createdUser) => {
             sessionStorage.setItem("userId", createdUser.id);
             sessionStorage.setItem("email", this.state.email);
             sessionStorage.setItem("firstName", this.state.firstName);
-            sessionStorage.setItem("lastName", this.state.lastName);
+			sessionStorage.setItem("lastName", this.state.lastName);
             this.props.triggerRender();
 
               //This determines which page you land on upon registration
@@ -66,6 +68,9 @@ class Register extends Component {
       }
     )
 }
+
+
+
 
   //Registration modal code goes here. 👇
   render() {
@@ -135,7 +140,10 @@ class Register extends Component {
 							</div>
 						</fieldset>
 					</form>
-				</ModalBody>
+					{/* <picture>
+                <img className="ella-avatar-1" src={require("")} alt="ella logo" />
+              </picture> */}
+			</ModalBody>
 				<ModalFooter>
 					<Button color="primary" onClick={this.handleRegister}>
 						Create Account!

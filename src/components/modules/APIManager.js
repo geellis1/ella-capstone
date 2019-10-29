@@ -14,6 +14,7 @@ export default {
     getAll(resource) {
       return fetch(`${remoteURL}/${resource}`).then(result => result.json())
     },
+  
 
     delete(resource ,id) {
       return fetch(`http://localhost:5002/${resource}/${id}`, {

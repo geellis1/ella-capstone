@@ -31,7 +31,7 @@ class ProfileCard extends Component {
         }));
     }
 
-   addToggle = () => {
+    addToggle = () => {
         this.setState(prevState => ({
             addModal: !prevState.addModal
         }));
@@ -73,37 +73,41 @@ class ProfileCard extends Component {
 
         return (
             <>
-                <div className="your-profile-card">
+                <div className="yourProfile-header">
                     <div className="card-content">
-                        <h2>hiiii this is the profile card</h2>
-                            <Modal
+                        <h1 className="yourProfileHeaderText">your profile</h1>
+                        <picture>
+                            <img className="ellaProfileImg" src={require("../../images/profileavatar.png")} alt="ella logo" />
+                        </picture><br></br>
+                        <h2 className="profileName">{activeUserName}</h2><br></br>
+                        <h3 className="profileHeader">Your Pharmacy:</h3><h4 className="profileInfo">{this.state.pharmacyName}</h4><br></br>
+                        <h3 className="profileHeader">Pharmacy Number:</h3> <h4 className="profileInfo">{this.state.pharmacyNumber}</h4>
+                        <Modal
                             isOpen={this.state.addModal}
                             toggle={this.addToggle}
                             className={this.props.className}
-                            >
+                        >
                             <ModalHeader
                                 toggle={this.toggle}
                                 close={closeBtn}>
                                 Add Pharmacy Info
                             </ModalHeader>
                             <ModalBody>
-                            <AddPharmacyForm {...this.props}
-                                getData={this.getData}
-                                toggle = {this.addToggle}
-                            />
+                                <AddPharmacyForm {...this.props}
+                                    getData={this.getData}
+                                    toggle={this.addToggle}
+                                />
                             </ModalBody>
-                            </Modal>
+                        </Modal>
+                        <span className="card-profile-card-title"></span>
 
-                            {this.state.pharmacyName}
-                            {this.state.pharmacyNumber}
-                            {activeUserName}
-                            <span className="card-profile-card-title"></span>
-
-                            <div>
+                        <div>
 
                             {this.state.pharmacyName === "" ?
-                            <Button className="addPharmacy" onClick={this.addToggle}>
-                    Add Pharmacy</Button>
+                                <Button className="addPharmacy" onClick={this.addToggle}>
+                                <i class="fas fa-plus fa-1x"></i>
+                                
+                                    Add Pharmacy</Button>
 
                                 : <button
                                     type="button" className="edit-pharmacy"
@@ -111,9 +115,10 @@ class ProfileCard extends Component {
                                         this.toggle()
                                     }}
                                 >
+                                 <i class="fas fa-edit fa-1x"></i>
                                     Edit
                                     </button>}
-                            </div>
+                        </div>
                         <Modal
                             isOpen={this.state.modal}
                             toggle={this.toggle}

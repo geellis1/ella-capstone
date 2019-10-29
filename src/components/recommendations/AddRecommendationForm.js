@@ -74,6 +74,7 @@ class AddRecommendationForm extends Component {
             <>
                 {" "}
                 <Button className="addRecommendation" onClick={this.toggle}>
+                <i class="fas fa-plus fa-1x"></i>
                     Add Recommendation</Button>
                 <Modal
                     isOpen={this.state.modal}

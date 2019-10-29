@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import "../nav/navbar.css";
 
 class NavBar extends Component {
@@ -18,16 +19,19 @@ class NavBar extends Component {
         {(this.props.user) ?
           <nav className="navbar">
             <div className="logoimg">
-              <picture >
+              <picture>
                 <img className="logo" src={require('../../images/ellalogofinal-02.png')} alt="ella logo" />
               </picture>
             </div>
-            <ul className="nav nav-pills nav-fill">
-            <li><span className="nav-link" onClick={this.logOut}>Logout</span></li>
-            </ul>
+
+            <Button className="logOut" onClick={this.logOut}>
+            <i class="fas fa-sign-out-alt fa-1x"></i>
+            Logout
+						</Button>
           </nav>
           : null}
           </>
+
     )
   }
 }

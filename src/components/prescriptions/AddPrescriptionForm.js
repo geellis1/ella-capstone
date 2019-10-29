@@ -61,6 +61,7 @@ class AddPrescriptionForm extends Component {
             <>
                 {" "}
                 <Button className="addPrescription" onClick={this.toggle}>
+                <i class="fas fa-plus fa-1x"></i>
                     Add Prescription</Button>
                 <Modal
                     isOpen={this.state.modal}
