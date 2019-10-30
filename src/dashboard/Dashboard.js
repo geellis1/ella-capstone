@@ -32,14 +32,13 @@ class Dashboard extends Component {
         return (
             <div className="mainBody">
             <section className="mainSection">
-            <section className="welcome">
+            <section className="welcome" id="grad">
                 <div className="logoimg">
               <picture>
                 <img className="ellaWelcome" src={require("../images/ellawelcomeimage.png")} alt="ella logo" />
               </picture>
               </div>
               <h1 className="dashboardWelcome">hello, {activeUserName}! <br></br>we're glad you are here.</h1>
-            
             </section>
             <div className="health-prescriptions">
             <div className="healthProfile-container">

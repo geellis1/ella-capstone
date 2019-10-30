@@ -48,7 +48,6 @@ class RecommendationCard extends Component {
                 <div className="recommendation-card">
                     <div className="card-content">
                         <h4>
-            
                         {this.props.nameOfDoctor}
                             {this.props.recommendationDetails}
                             {this.props.personRecommended}

@@ -16,3 +16,20 @@
 .fa-sign-out-alt{
     padding-right: 10px;
 }
+
+.logoimg{
+    /* background-color: #fdf0f2; */
+    width: 70%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    padding: 0px !important;
+
+}
+
+.logoImgNav {
+   background-color: #fdf0f2; 
+   width: 75%;
+}

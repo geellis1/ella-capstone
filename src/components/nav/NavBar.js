@@ -18,7 +18,7 @@ class NavBar extends Component {
       <>
         {(this.props.user) ?
           <nav className="navbar">
-            <div className="logoimg">
+            <div className="logoImgNav">
               <picture>
                 <img className="logo" src={require('../../images/ellalogofinal-02.png')} alt="ella logo" />
               </picture>

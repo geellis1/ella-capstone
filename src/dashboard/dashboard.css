@@ -24,7 +24,7 @@ p {
 
 }
 .mainBody {
-    background-color: #FCC1C5;
+    background-color: #fdf0f2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -34,13 +34,15 @@ p {
 .health-prescriptions {
 display: flex;
 flex-direction: row;
-width: 103.5%;
+width: 111%;
 }
 
 .rightSection {
     display: flex;
     flex-direction: column;
-    /* width: 30%; */
+    background-color: white;
+    width: 28%;
+
 }
 
 .appointments-container {
@@ -69,6 +71,10 @@ width: 103.5%;
     width: 70%;
 }
 
+#grad {
+    background-image: linear-gradient(to bottom,#E7A6AF,#F6C254);
+  }
+
 .welcome {
 background-color: #F6C254;
 margin-top: 0.8em;
@@ -78,7 +84,8 @@ border-radius: 0.6em;
 margin-left: 1em;
 height: 230px;
 display: flex;
-width: 101%
+flex-direction: row;
+width: 109%
 }
 
 .recommendations-container  {

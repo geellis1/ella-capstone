@@ -16,6 +16,7 @@ class Register extends Component {
     email: "",
 	password: "",
 	profileImageId: "",
+	profileImages: [],
     modal: false
   };
 
@@ -69,7 +70,18 @@ class Register extends Component {
     )
 }
 
+componentDidMount() {
+    //getAll from APIManager and hang on to that data; put it in state
+    APIManager.getAll("profileImages").then(images => {
+      this.setState({
+        profileImages: images
+      });
+    });
+  }
 
+setImage (id) {
+	this.setState({profileImageId:id})
+}
 
 
   //Registration modal code goes here. 👇
@@ -140,9 +152,9 @@ class Register extends Component {
 							</div>
 						</fieldset>
 					</form>
-					{/* <picture>
-                <img className="ella-avatar-1" src={require("")} alt="ella logo" />
-              </picture> */}
+				{this.state.profileImages.map(img => (
+					<img id="profileImageId" key={img.id} src={img.imgRoute} onClick={() => this.setImage(img.id)}/>
+				))}
 			</ModalBody>
 				<ModalFooter>
 					<Button color="primary" onClick={this.handleRegister}>
