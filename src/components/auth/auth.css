@@ -76,10 +76,78 @@
 .avatarContainer {
     display: flex;
     flex: row;
+    overflow-x: scroll;
 }
 
 #profileImageId {
-    width: 100px;
-    margin-left: 20px;
+    display: flex;
+    width: 120px;
+    margin-left: 10px;
 }
 
+#profileImageId:hover  {
+    cursor: pointer;
+}
+.grow {
+    background-color: white;
+}
+
+
+.grow:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
+
+  .grow:focus {
+    background-color:#718DC8;
+    outline: none !important;
+}
+
+.registerFields {
+    margin-bottom: 20px;
+    width: 500px;
+    margin-left: 10px;
+}
+
+.registerFormText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px !important;
+    margin-left: 10px;
+    color: #283676;
+}
+
+.registerProfileIntro {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px !important;
+    margin-left: 10px;
+    color: #283676;
+}
+
+.registerModalHeader{
+    width: 550px;
+    margin-left: 95px;
+}
+
+.createAccountButton {
+    font-family: 'Poppins', sans-serif;
+    background-color: #EFA3AC !important;
+    margin-left: 100px;
+    border-color: #EFA3AC !important;
+    width: 250px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.fa-grin-hearts{
+    color: white;
+    margin-right: 20px;
+}
+
+.createAccountCancelButton{
+    color: grey;
+    font-family: 'Poppins', sans-serif;
+    width: 75px;
+    font-size: 14px !important;
+}

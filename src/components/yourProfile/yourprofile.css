@@ -10,8 +10,8 @@
 }
 
 .ellaProfileImg  {
-    width: 300px;
-    padding-left: 130px;
+    width: 220px;
+    /* padding-left: 130px; */
 }
 
 .yourProfileHeaderText {
@@ -20,23 +20,24 @@
 
 .profileName{
     font-family: 'Poppins', sans-serif;
-    font-size: 32px;
-    color: #21AABC;
+    font-size: 40px;
+    color: #E7A6AF;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .profileHeader{
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-weight: bolder;
-    color: #21AABC;
+    color: #6792EF;
     text-transform: uppercase;
     text-align: center;
 }
 .profileInfo  {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    color: #21AABC;
+    color: #6792EF;
     text-align: center;
 }
 
@@ -48,14 +49,32 @@
     margin-bottom: 20px;
 }
 .edit-pharmacy {
-    background-color: #21AABC !important;
-    border-color: #21AABC !important;
-    width: 80px;
-    height: 50px;
+    background-color: #6792EF !important;
+    border-color: #6792EF!important;
+    border-radius: 0.5em;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px !important;
+    font-size: 14px !important;
     color: white !important;
-    margin-left: 160px;
-    margin-bottom: 30px;
-    margin-top: 20px;
+    width: 90px;
+    height: 40px;
+    margin-left: 14px;
+    padding-right: 1px;
+    align-content: center;
+    margin-right: 12px;
+    margin-top: 14px;
+}
+
+.yourProfileImage {
+    display: flex;
+    justify-content: center;
+}
+
+.headerTextProfile  {
+    display: flex;
+    justify-content: center;
+}
+
+.profileButtonsContainer{
+    display: flex;
+    justify-content: center;
 }

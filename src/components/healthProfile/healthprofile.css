@@ -31,24 +31,32 @@
 }
 
 .addHealthProfile {
-    background-color: #04267D !important;
-    border-color: #04267D !important;
+    background-color: #E7A6AF !important;
+    border-color: #E7A6AF !important;
     margin-left: 20px;
-    margin-top: 15px;
     margin-bottom: 20px;
+    margin-top: -15px;
 }
 
 .edit-healthProfile{
-    background-color: #21AABC !important;
-    border-color: #21AABC !important;
-    width: 80px;
-    height: 50px;
+    background-color: #6792EF !important;
+    border-color: #6792EF!important;
+    border-radius: 0.5em;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px !important;
+    font-size: 14px !important;
     color: white !important;
-    margin-left: 20px;
-    margin-bottom: 30px;
-    margin-top: 20px;
+    width: 90px;
+    height: 40px;
+    margin-left: 14px;
+    padding-right: 1px;
+    align-content: center;
+    margin-right: 12px;
+    margin-top: 14px;
+}
+
+.fa-edit {
+    color: white;
+    margin-right: 3px;
 }
 
 .editHealth {

@@ -8,38 +8,63 @@
 }
 
 .addRecommendation {
-    background-color: #04267D !important;
-    border-color: #04267D !important;
-    margin-left: 20px;
+    background-color: #E7A6AF !important;
+    border-color: #E7A6AF !important;
     margin-bottom: 20px;
-}
-.deleteRecommendation {
-background-color: #F6C254 !important;
-    border-color: #F6C254 !important;
-    border-radius: 0.7em;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px !important;
-    color: white !important;
+    margin-top: -15px;
 }
 
 .edit-recommendation {
-    background-color: #21AABC !important;
-    border-color: #21AABC !important;
-    width: 80px;
-    height: 50px;
+    background-color: #6792EF !important;
+    border-color: #6792EF!important;
+    border-radius: 0.5em;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px !important;
+    font-size: 14px !important;
     color: white !important;
-    margin-left: 20px;
-    margin-bottom: 30px;
-    margin-top: 20px;
+    width: 90px;
+    height: 40px;
+    margin-left: 9px;
+    padding-right: 1px;
+    align-content: center;
+    margin-right: 12px;
+}
+
+.fa-trash-alt{
+    color: white;
+    margin-right: 4px;
+}
+
+.fa-edit {
+    color: white;
+    margin-right: 3px;
 }
 
 .delete-recommendation {
     background-color: #F6C254 !important;
     border-color: #F6C254 !important;
-    border-radius: 0.7em;
+    border-radius: 0.5em;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px !important;
+    font-size: 14px !important;
     color: white !important;
+    width: 90px;
+    height: 40px;
+    padding-right: 10px;
+    align-content: center;
+    margin-left: 20px;
+}
+
+hr {
+    color: #F6C254;
+}
+
+.recommendationsHeaderText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 0px !important;
+}
+
+.addRecommendationButtonContainer {
+    display: flex;
+    justify-content: center;
 }

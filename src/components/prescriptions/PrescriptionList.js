@@ -9,13 +9,13 @@ import "../prescriptions/prescription.css";
 
 class PrescriptionList extends Component {
   //define what this component needs to render
-   state = {
-   prescriptions: [],
-   prescriptionName: "",
-   prescriptionDosage: "",
-   prescriptionDetails: "",
-   userId: "",
-   modal: false
+  state = {
+    prescriptions: [],
+    prescriptionName: "",
+    prescriptionDosage: "",
+    prescriptionDetails: "",
+    userId: "",
+    modal: false
   };
 
   activeUserId = parseInt(sessionStorage.getItem("userId"))
@@ -54,14 +54,14 @@ class PrescriptionList extends Component {
   render() {
     return (
       <>
-    <div className = "prescription-header">
-    <h1>my prescriptions</h1>
+          <div className="prescription-header">
+            <h1>prescriptions</h1>
+          </div>
 
-
-     <AddPrescriptionForm {...this.props}
-      getData={this.getData}
-     />
-  
+          <AddPrescriptionForm {...this.props}
+            getData={this.getData}
+          />
+          <hr></hr>
           {this.state.prescriptions.map(prescription => (
             <PrescriptionCard
               key={prescription.id}
@@ -70,13 +70,12 @@ class PrescriptionList extends Component {
               userId={prescription.userId}
               prescriptionDetails={prescription.prescriptionDetails}
               prescriptionDosage={prescription.prescriptionDosage}
-             deletePrescription={this.deletePrescription}
+              deletePrescription={this.deletePrescription}
               {...this.props}
               getData={this.getData}
             />
           ))}
-        </div>
-        
+
       </>
     );
   }

@@ -182,7 +182,7 @@ class AddAppointmentForm extends Component {
                                     value={this.state.doctorNotes} />
 
                                 <label htmlFor="visitPurpose">
-                                    Puprose of Visit:
+                                    Purpose of Visit:
 									</label>
                                 <input
                                     type="text"

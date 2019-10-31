@@ -104,69 +104,71 @@ setImage (id) {
 				id="registrationModal"
 			>
 				<ModalHeader toggle={this.toggle} close={closeBtn}>
-					Create Your Account
+				<picture>
+                <img className="registerModalHeader" src={require("../../images/ella-register-modal-01.png")} alt="ella logo" />
+              </picture>
 				</ModalHeader>
 				<ModalBody>
 					<form>
 						<fieldset>
 							<div className="formgrid">
-							<label htmlFor="firstName"> First Name</label><br></br>
-								<input
+							<label className="registerFormText" htmlFor="firstName"> First Name</label><br></br>
+								<input className="registerFields"
 									onChange={this.handleFieldChange}
 									type="text"
 									id="firstName"
-									placeholder="First Name"
+									placeholder="Please enter your first name"
 									required=""
 									autoFocus=""
 								/><br></br>
-								
-
-								<label htmlFor="lastName"> Last Name</label><br></br>
-                                <input
+								<label className="registerFormText" htmlFor="lastName"> Last Name</label><br></br>
+                                <input className="registerFields"
 									onChange={this.handleFieldChange}
 									type="text"
 									id="lastName"
-									placeholder="Last Name"
+									placeholder="Please enter your last name"
 									required=""
 									autoFocus=""
 								/><br></br>
 
-								<label htmlFor="inputEmail">
+								<label className="registerFormText" htmlFor="inputEmail">
 									Email address
 								</label>
 								<br></br>
-								<input
+								<input className="registerFields"
 									onChange={this.handleFieldChange}
 									type="email"
 									id="email"
-									placeholder="Email address"
+									placeholder="Please enter your email"
 									required=""
 									autoFocus=""
 								/><br></br>
-<label htmlFor="inputPassword">Password</label><br></br>
-								<input
+								<label className="registerFormText" htmlFor="inputPassword">Password</label><br></br>
+								<input className="registerFields"
 									onChange={this.handleFieldChange}
 									type="password"
 									id="password"
-									placeholder="Password"
+									placeholder="Please Enter A Password"
 									required=""
 								/>
-								
 							</div>
 						</fieldset>
 					</form>
-					<h4>Choose Your Profile Image</h4>
+					<h4 className="registerProfileIntro">Choose Your Profile Image</h4>
 					<section className="avatarContainer">
 				{this.state.profileImages.map(img => (
-					<img id="profileImageId" key={img.id} src={img.imgRoute} onClick={() => this.setImage(img.id)}/>
+					<div className="grow" tabindex="1">
+					<img className="expand" id="profileImageId" key={img.id} src={img.imgRoute} onClick={() => this.setImage(img.id)}/>
+					</div>
 				))}
 				</section>
 			</ModalBody>
 				<ModalFooter>
-					<Button color="primary" onClick={this.handleRegister}>
-						Create Account!
+					<Button color="primary" className="createAccountButton" onClick={this.handleRegister}>
+					<i class="fas fa-grin-hearts"></i>
+						Create Your Account!
 					</Button>
-					<Button color="secondary" onClick={this.toggle}>
+					<Button color="secondary" className="createAccountCancelButton" onClick={this.toggle}>
 						Cancel
 					</Button>
 				</ModalFooter>
