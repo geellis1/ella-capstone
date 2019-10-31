@@ -59,12 +59,11 @@ class RecommendationList extends Component {
     return (
       <>
         <div className="recommendations-header">
-          <h1>Recommendations</h1>
+          <h1>my recommendations</h1>
 
           <AddRecommendationForm {...this.props}
             getData={this.getData}
           />
-        </div>
 
         <div className="recommendation-container-cards">
           {this.state.recommendations.map(recommendation => (
@@ -82,6 +81,7 @@ class RecommendationList extends Component {
               getData={this.getData}
             />
           ))}
+        </div>
         </div>
       </>
     );

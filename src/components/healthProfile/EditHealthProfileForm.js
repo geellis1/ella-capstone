@@ -65,17 +65,16 @@ class EditHealthProfileForm extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
-								<h2>Today's Date: {this.state.dateUpdated}</h2>
-								<input
+								<label className="editHealth" htmlFor="bloodType">What is your blood type?</label>
+								<input  className="health-input"
 									type="text"
 									className="form-control"
 									onChange={this.handleFieldChange}
 									id="bloodType"
 									defaultValue={this.state.bloodType}
 								/>
-								<label htmlFor="bloodType">What is your blood type?</label>
-
-								<input
+								<label className="editHealth" htmlFor="height">What is your height?</label>
+								<input  className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -83,9 +82,8 @@ class EditHealthProfileForm extends Component {
 									id="height"
 									defaultValue={this.state.height}
 								/>
-								<label htmlFor="height">what is your height?</label>
-
-								<input
+								<label className="editHealth" htmlFor="weight">What is your weight?</label>
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -93,9 +91,9 @@ class EditHealthProfileForm extends Component {
 									id="weight"
 									defaultValue={this.state.weight}
 								/>
-								<label htmlFor="weight">what is your weight?</label>
 
-								<input
+								<label className="editHealth" htmlFor="allergies">What allergies do you have?</label>
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -103,7 +101,6 @@ class EditHealthProfileForm extends Component {
 									id="allergies"
 									defaultValue={this.state.allergies}
 								/>
-								<label htmlFor="allergies">What allergies do you have?</label>
 							</div>
 							<div className="alignRight"></div>
 						</fieldset>
@@ -116,13 +113,12 @@ class EditHealthProfileForm extends Component {
 							this.updateExistingHealthProfile(evt);
 							this.props.toggle();
 						}}
-						className="btn btn-primary"
+						className="btn btn-primary-health"
 					>
-						Submit
-					</Button>
-					<Button className="cancel" onClick={this.props.toggle}>
-						Cancel
-					</Button>
+					<i class="fas fa-check fa-1x"></i>
+						Update
+					</Button><br></br>
+					{/* <h2>Today's Date: {this.state.dateUpdated}</h2> */}
 				</ModalFooter>
 			</>
 		);

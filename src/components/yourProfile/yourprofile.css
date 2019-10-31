@@ -1,3 +1,61 @@
 .your-profile-card {
-    background-color: purple;
+    background-color:white;
+    border-radius: 0.3em;
+}
+
+.yourProfile-header{
+    background-color:white;
+    border-radius: 0.3em;
+    margin-left: 0.6em;
+}
+
+.ellaProfileImg  {
+    width: 300px;
+    padding-left: 130px;
+}
+
+.yourProfileHeaderText {
+    text-align: center;
+}
+
+.profileName{
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: #21AABC;
+    text-align: center;
+}
+
+.profileHeader{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #21AABC;
+    text-transform: uppercase;
+    text-align: center;
+}
+.profileInfo  {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #21AABC;
+    text-align: center;
+}
+
+.addPharmacy{
+    background-color: #04267D !important;
+    border-color: #04267D !important;
+    margin-left: 138px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.edit-pharmacy {
+    background-color: #21AABC !important;
+    border-color: #21AABC !important;
+    width: 80px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px !important;
+    color: white !important;
+    margin-left: 160px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }

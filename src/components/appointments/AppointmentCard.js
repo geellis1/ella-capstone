@@ -6,6 +6,10 @@ import "./appointment.css"
 import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 import EditAppointmentForm from "./EditAppointmentForm"
 import ShowAppointmentDetails from "./AppointmentDetails"
+import ReactTooltip from 'react-tooltip'
+
+
+
 
 class AppointmentCard extends Component {
 
@@ -13,12 +17,15 @@ class AppointmentCard extends Component {
    appointments: [],
    prescriptions: [],
    appointmentNotes: "",
+   appointmentDate: "",
+   doctorName: "",
    userId: "",
    editModal: false,
    detailsModal: false
     };
 
     activeUserId = parseInt(sessionStorage.getItem("userId"))
+
 
     toggleEditModal = () => {
         this.setState(prevState => ({
@@ -57,19 +64,32 @@ class AppointmentCard extends Component {
             <>
                 <div className="appointment-card">
                     <div className="card-content">
-                        <h4>
-                            {this.props.appointmentNotes}
+                    <div className="appointmentCardContent">
+                        <h4 className="appointmentDetails">
+                            {this.props.appointmentDate}<br></br>
+                            {this.props.doctorName}
                             <span className="card-messageTitle"></span>
                         </h4>
+                        </div>
                         <div>
                             {
                                 parseInt(this.props.userId) === (this.activeUserId) ?
-                                    <div>
-                                        <button
+                                    <div className="appointmentButtons">
+                                    <button type="button" className="view-appointment" data-toggle="tooltip" title="Hooray!"
+                                            onClick={() => {
+                                                this.toggleDetailsModal()
+                                            }}
+                                        >
+                                        <p data-tip="view more details"><i class="fas fa-info"></i></p>
+                                        <ReactTooltip />
+
+                                    </button>
+                                    <button
                                             type="button" className="delete-appointment"
                                             onClick={() =>
                                                 this.handleDelete(this.props.appointmentId)}
                                         >
+                                        <i class="fas fa-trash-alt fa-1x"></i>
                                             Delete
                                         </button>
 
@@ -79,15 +99,8 @@ class AppointmentCard extends Component {
                                                 this.toggleEditModal()
                                             }}
                                         >
+                                        <i class="fas fa-edit fa-1x"></i>
                                             Edit
-                                    </button>
-                                    <button
-                                            type="button" className="view-appointment"
-                                            onClick={() => {
-                                                this.toggleDetailsModal()
-                                            }}
-                                        >
-                                            View More Details
                                     </button>
                                     </div>
                                     : null

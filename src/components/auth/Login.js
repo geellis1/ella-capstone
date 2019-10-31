@@ -45,7 +45,7 @@ class Login extends Component {
             } else if (singleUser) {
                 sessionStorage.setItem("userId", singleUser.id);
                 sessionStorage.setItem("email", this.state.email);
-                sessionStorage.setItem("firstName",singleUser.firstName);
+                sessionStorage.setItem("firstName", singleUser.firstName);
                 this.props.triggerRender();
                 this.props.history.push("/");
             } else {
@@ -60,70 +60,61 @@ class Login extends Component {
     render() {
         const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
         return (
-            <div>
-                <div className="header">
-                </div>
-                <div className="registrationDiv">
-                    <Button
-                        className="loginButton"
-                        onClick={this.toggle}
-                    >
-                        Login
-				</Button>
+            <section className="mainBodyLogin">
+                <div className="registrationDivLeft">
+                    <nav className="navbar">
+                        <div className="logoimg">
+                            <picture >
+                                <img className="logo" src={require('../../images/ellalogofinal-02.png')} alt="ella logo" />
+                            </picture>
+                        </div>
+                    </nav>
+                    <div className="welcomeText">
+                        <h1 className="welcomeText">tracking your health <br></br> shouldn't be a task.</h1>
+                        <h1 className="welcomeSubText">ella was built for all womankind, celebrating <br></br> our lives by
+simplifying our health journey.
+</h1>
+                    </div>
+                    <form onSubmit={this.handleLogin}>
+                        <fieldset>
+                            <div className="loginForm">
+                                <input className= "loginInput"
+                                    onChange={this.handleFieldChange}
+                                    type="email"
+                                    id="email"
+                                    required=""
+                                    autoFocus=""
+                                /><i class="far fa-envelope fa-1x"></i>
 
-                    <Modal
-                        isOpen={this.state.modal}
-                        toggle={this.toggle}
-                        className={this.props.className}
-                    >
-                        <ModalHeader toggle={this.toggle} close={closeBtn}>
-                            Please Sign In
-					</ModalHeader>
-                        <ModalBody>
-                            <form onSubmit={this.handleLogin}>
-                                <fieldset>
-                                    <div className="formgrid">
-                                        <label htmlFor="inputEmail">
-                                            Email address
+                                <br></br>
+                                <label className="inputCopy" htmlFor="inputEmail">
+                                    Email address
 									</label>
-                                        <br></br>
-                                        <input
-                                            onChange={this.handleFieldChange}
-                                            type="email"
-                                            id="email"
-                                            placeholder="Email address"
-                                            required=""
-                                            autoFocus=""
-                                        />
-                                        <br></br>
-                                        <label htmlFor="inputPassword">
-                                            Password
+                                <br></br>
+                                <input className= "loginInput"
+                                    onChange={this.handleFieldChange}
+                                    type="password"
+                                    id="password"
+                                    required=""
+                                /><i class="fas fa-unlock fa-1x"></i><br></br>
+                                <label className="inputCopy" htmlFor="inputPassword">
+                                    Password
 									</label>
-									<br></br>
-									<input
-										onChange={this.handleFieldChange}
-										type="password"
-										id="password"
-										placeholder="Password"
-										required=""
-									/>
-								</div>
-							</fieldset>
-						</form>
-					</ModalBody>
-					<ModalFooter>
-						<Button className="add" onClick={this.handleLogin}>
-							Sign In!
+                            </div>
+                        </fieldset>
+                    </form>
+                    <Button className="signIn" onClick={this.handleLogin}>
+                        Sign In!
 						</Button>{" "}
-						<Button className="close" onClick={this.toggle}>
-							Cancel
-						</Button>
-                        </ModalFooter>
-                    </Modal>
 
                     <Register triggerRender={this.props.triggerRender} />
                 </div>
-            </div>
+                <div className="brandImageRight">
+                    <picture >
+                        <img className="loginImage" src={require('../../images/ellalogin-01.png')} alt="ella logo" />
+                    </picture>
+                </div>
+            </section>
         );
     }
 

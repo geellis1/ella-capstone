@@ -48,7 +48,6 @@ class RecommendationCard extends Component {
                 <div className="recommendation-card">
                     <div className="card-content">
                         <h4>
-                            hiiii this is the recommendations card
                         {this.props.nameOfDoctor}
                             {this.props.recommendationDetails}
                             {this.props.personRecommended}
@@ -64,6 +63,7 @@ class RecommendationCard extends Component {
                                             onClick={() =>
                                                 this.handleDelete(this.props.recommendationId)}
                                         >
+                                        <i class="fas fa-trash-alt fa-1x"></i>
                                             Delete
                                         </button>
 
@@ -73,6 +73,7 @@ class RecommendationCard extends Component {
                                                 this.toggle()
                                             }}
                                         >
+                                        <i class="fas fa-edit fa-1x"></i>
                                             Edit
                                     </button>
                                     </div>

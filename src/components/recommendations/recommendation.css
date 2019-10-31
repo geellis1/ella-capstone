@@ -1,7 +1,45 @@
 .recommendation-card{
-    background-color:  blue;
+    background-color:  white;
 }
 
 .recommendations-header {
-    background-color: blue;
+    background-color:white;
+    border-radius: 0.6em;
+}
+
+.addRecommendation {
+    background-color: #04267D !important;
+    border-color: #04267D !important;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.deleteRecommendation {
+background-color: #F6C254 !important;
+    border-color: #F6C254 !important;
+    border-radius: 0.7em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px !important;
+    color: white !important;
+}
+
+.edit-recommendation {
+    background-color: #21AABC !important;
+    border-color: #21AABC !important;
+    width: 80px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px !important;
+    color: white !important;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.delete-recommendation {
+    background-color: #F6C254 !important;
+    border-color: #F6C254 !important;
+    border-radius: 0.7em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px !important;
+    color: white !important;
 }

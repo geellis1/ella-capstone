@@ -27,25 +27,38 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log(this.triggerRender)
+        let activeUserName = sessionStorage.getItem("firstName")
         return (
             <div className="mainBody">
             <section className="mainSection">
-            <section className="welcome">
-                <h1>this is the welcome section</h1>
+            <section className="welcome" id="grad">
+                <div className="logoimg">
+              <picture>
+                <img className="ellaWelcome" src={require("../images/ellawelcomeimage.png")} alt="ella logo" />
+              </picture>
+              </div>
+              <h1 className="dashboardWelcome">hello, {activeUserName}! <br></br>we're glad you are here.</h1>
             </section>
             <div className="health-prescriptions">
             <div className="healthProfile-container">
-            <HealthProfileCard {...this.props} />
+            <HealthProfileCard key={this.state.dashboard}{...this.props} />
             </div>
+            <div className="prescriptions-container">
             <PrescriptionList key={this.state.dashboard}{...this.props} />
+            </div>
             </div>
             <div className="appointments-container">
             <AppointmentList {...this.props}triggerRender={this.triggerRender} />
             </div>
             </section>
             <section className="rightSection">
+            <div className="yourProfile-container">
             <YourProfileCard {...this.props} />
+            </div>
+            <div className="recommendations-container">
             <RecommendationList {...this.props} />
+            </div>
             </section>
         </div>
 

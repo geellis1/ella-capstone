@@ -4,9 +4,9 @@ import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import APIManager from '../modules/APIManager'
 import "./auth.css";
-import {withRouter} from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
-//Reactstrap Modal code from line 10 to 21
+
 class Register extends Component {
 
   // Set initial state
@@ -14,7 +14,9 @@ class Register extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
+	password: "",
+	profileImageId: "",
+	profileImages: [],
     modal: false
   };
 
@@ -49,14 +51,15 @@ class Register extends Component {
           firstName: this.state.firstName,
           lastName: this.state.lastName,
           email: this.state.email,
-          password: this.state.password,
+		  password: this.state.password,
+		  profileImageId: this.state.profileImageId
         };
         APIManager.post("users", newUser)
             .then((createdUser) => {
             sessionStorage.setItem("userId", createdUser.id);
             sessionStorage.setItem("email", this.state.email);
             sessionStorage.setItem("firstName", this.state.firstName);
-            sessionStorage.setItem("lastName", this.state.lastName);
+			sessionStorage.setItem("lastName", this.state.lastName);
             this.props.triggerRender();
 
               //This determines which page you land on upon registration
@@ -67,22 +70,38 @@ class Register extends Component {
     )
 }
 
+componentDidMount() {
+    //getAll from APIManager and hang on to that data; put it in state
+    APIManager.getAll("profileImages").then(images => {
+      this.setState({
+        profileImages: images
+      });
+    });
+  }
+
+setImage (id) {
+	this.setState({profileImageId:id})
+}
+
+
   //Registration modal code goes here. 👇
   render() {
 
     const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
     return (
 		<div>
-			<Button
-				className="registrationButton"
+			<Link
+				className="registrationLink"
 				onClick={this.toggle}
 			>
-				Register
-			</Button>
+				Not a user? Create your account!
+			</Link>
 			<Modal
 				isOpen={this.state.modal}
 				toggle={this.toggle}
-				className={this.props.className}
+				size="lg"
+				// className={this.props.className}
+				id="registrationModal"
 			>
 				<ModalHeader toggle={this.toggle} close={closeBtn}>
 					Create Your Account
@@ -91,6 +110,7 @@ class Register extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
+							<label htmlFor="firstName"> First Name</label><br></br>
 								<input
 									onChange={this.handleFieldChange}
 									type="text"
@@ -98,9 +118,10 @@ class Register extends Component {
 									placeholder="First Name"
 									required=""
 									autoFocus=""
-								/>
-								<label htmlFor="firstName"> First Name</label>
+								/><br></br>
+								
 
+								<label htmlFor="lastName"> Last Name</label><br></br>
                                 <input
 									onChange={this.handleFieldChange}
 									type="text"
@@ -108,8 +129,7 @@ class Register extends Component {
 									placeholder="Last Name"
 									required=""
 									autoFocus=""
-								/>
-								<label htmlFor="lastName"> Last Name</label>
+								/><br></br>
 
 								<label htmlFor="inputEmail">
 									Email address
@@ -122,8 +142,8 @@ class Register extends Component {
 									placeholder="Email address"
 									required=""
 									autoFocus=""
-								/>
-
+								/><br></br>
+<label htmlFor="inputPassword">Password</label><br></br>
 								<input
 									onChange={this.handleFieldChange}
 									type="password"
@@ -131,11 +151,17 @@ class Register extends Component {
 									placeholder="Password"
 									required=""
 								/>
-								<label htmlFor="inputPassword">Password</label>
+								
 							</div>
 						</fieldset>
 					</form>
-				</ModalBody>
+					<h4>Choose Your Profile Image</h4>
+					<section className="avatarContainer">
+				{this.state.profileImages.map(img => (
+					<img id="profileImageId" key={img.id} src={img.imgRoute} onClick={() => this.setImage(img.id)}/>
+				))}
+				</section>
+			</ModalBody>
 				<ModalFooter>
 					<Button color="primary" onClick={this.handleRegister}>
 						Create Account!

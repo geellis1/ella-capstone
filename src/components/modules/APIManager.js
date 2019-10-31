@@ -52,6 +52,9 @@ export default {
   getUserRecommendation(resource, userId) {
     return fetch(`${remoteURL}/${resource}?userId=${userId}&_expand=doctor`).then(result => result.json())
   },
+  getUserProfileImage(userId) {
+    return fetch(`${remoteURL}/users?id=${userId}&_expand=profileImageId`).then(result => result.json())
+  },
   getUserHealth(resource, userId) {
     return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
   }

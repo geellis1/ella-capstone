@@ -12,6 +12,8 @@ class AppointmentList extends Component {
    state = {
    appointments: [],
    appointmentNotes: "",
+   appointmentDate: "",
+   doctorName: "",
    userId: "",
    modal: false
   };
@@ -53,7 +55,7 @@ class AppointmentList extends Component {
     return (
       <>
       <div className = "appointment-header">
-    <h1>Appointments</h1>
+    <h1>my appointments</h1>
 
      <AddAppointmentForm {...this.props}
       getData={this.getData}
@@ -67,6 +69,8 @@ class AppointmentList extends Component {
               key={appointment.id}
               appointmentId={appointment.id}
               appointmentNotes={appointment.appointmentNotes}
+              appointmentDate={appointment.appointmentDate}
+              doctorName={appointment.doctorName}
               userId={appointment.userId}
              deleteAppointment={this.deleteAppointment}
              triggerRender =  {this.props.triggerRender}
