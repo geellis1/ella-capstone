@@ -20,7 +20,7 @@
     flex-direction: column;
 }
 
-input {
+.loginInput {
     background: transparent;
     border: none;
     border-bottom: 3px solid #283676;
@@ -72,3 +72,14 @@ input {
     color: #283676;
     margin-right: 50px;
 }
+
+.avatarContainer {
+    display: flex;
+    flex: row;
+}
+
+#profileImageId {
+    width: 100px;
+    margin-left: 20px;
+}
+

@@ -99,7 +99,9 @@ setImage (id) {
 			<Modal
 				isOpen={this.state.modal}
 				toggle={this.toggle}
-				className={this.props.className}
+				size="lg"
+				// className={this.props.className}
+				id="registrationModal"
 			>
 				<ModalHeader toggle={this.toggle} close={closeBtn}>
 					Create Your Account
@@ -108,6 +110,7 @@ setImage (id) {
 					<form>
 						<fieldset>
 							<div className="formgrid">
+							<label htmlFor="firstName"> First Name</label><br></br>
 								<input
 									onChange={this.handleFieldChange}
 									type="text"
@@ -115,9 +118,10 @@ setImage (id) {
 									placeholder="First Name"
 									required=""
 									autoFocus=""
-								/>
-								<label htmlFor="firstName"> First Name</label>
+								/><br></br>
+								
 
+								<label htmlFor="lastName"> Last Name</label><br></br>
                                 <input
 									onChange={this.handleFieldChange}
 									type="text"
@@ -125,8 +129,7 @@ setImage (id) {
 									placeholder="Last Name"
 									required=""
 									autoFocus=""
-								/>
-								<label htmlFor="lastName"> Last Name</label>
+								/><br></br>
 
 								<label htmlFor="inputEmail">
 									Email address
@@ -139,8 +142,8 @@ setImage (id) {
 									placeholder="Email address"
 									required=""
 									autoFocus=""
-								/>
-
+								/><br></br>
+<label htmlFor="inputPassword">Password</label><br></br>
 								<input
 									onChange={this.handleFieldChange}
 									type="password"
@@ -148,13 +151,16 @@ setImage (id) {
 									placeholder="Password"
 									required=""
 								/>
-								<label htmlFor="inputPassword">Password</label>
+								
 							</div>
 						</fieldset>
 					</form>
+					<h4>Choose Your Profile Image</h4>
+					<section className="avatarContainer">
 				{this.state.profileImages.map(img => (
 					<img id="profileImageId" key={img.id} src={img.imgRoute} onClick={() => this.setImage(img.id)}/>
 				))}
+				</section>
 			</ModalBody>
 				<ModalFooter>
 					<Button color="primary" onClick={this.handleRegister}>

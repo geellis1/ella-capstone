@@ -78,7 +78,7 @@ simplifying our health journey.
                     <form onSubmit={this.handleLogin}>
                         <fieldset>
                             <div className="loginForm">
-                                <input
+                                <input className= "loginInput"
                                     onChange={this.handleFieldChange}
                                     type="email"
                                     id="email"
@@ -91,7 +91,7 @@ simplifying our health journey.
                                     Email address
 									</label>
                                 <br></br>
-                                <input
+                                <input className= "loginInput"
                                     onChange={this.handleFieldChange}
                                     type="password"
                                     id="password"
