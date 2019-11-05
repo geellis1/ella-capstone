@@ -73,6 +73,7 @@ class EditHealthProfileForm extends Component {
 									id="bloodType"
 									defaultValue={this.state.bloodType}
 								/>
+								<h5 className="bloodTypeDescriptions"><em>The 4 blood types are: A, B, AB, and O.</em></h5>
 								<label className="editHealth" htmlFor="height">What is your height?</label>
 								<input  className="health-input"
 									type="text"

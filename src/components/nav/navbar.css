@@ -1,7 +1,14 @@
-.logo {
+/* .logo {
     width: 250px;
     padding-bottom: 30px;
-    margin-left: 10px;
+    margin-left: 20px;
+    padding-top: 20px;
+} */
+
+.logo {
+    width: 150px;
+    padding-bottom: 30px;
+    margin-left: 20px;
     padding-top: 20px;
 }
 
@@ -21,7 +28,7 @@
 
 .logoimg{
     /* background-color: #fdf0f2; */
-    width: 70%;
+    width: 60%;
 }
 
 .navbar {

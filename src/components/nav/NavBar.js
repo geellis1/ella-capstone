@@ -20,7 +20,7 @@ class NavBar extends Component {
           <nav className="navbar">
             <div className="logoImgNav">
               <picture>
-                <img className="logo" src={require('../../images/ellalogofinal-02.png')} alt="ella logo" />
+                <img className="logo" src={require('../../images/ellalogowordmark.png')} alt="ella logo" />
               </picture>
             </div>
 

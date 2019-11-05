@@ -3,6 +3,7 @@
 .prescription-header {
     background-color: white;
     border-radius: 0.6em;
+    margin-bottom: 2em;
 }
 
 .addPrescription {
@@ -50,7 +51,7 @@
 }
 
 .prescriptionHeader{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: bolder;
     color: #6792EF !important;
@@ -61,9 +62,9 @@
 
 .prescriptionDetailsText{
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bolder;
-    color: #21AABC !important;
+    color: #6792EF !important;
     margin-left: 20px;
 }
 
@@ -110,9 +111,5 @@
 
  .prescription-card {
      background-color: white;
-     overflow-x: scroll;
  }
 
- .card-content {
-    overflow-x: scroll;
- }

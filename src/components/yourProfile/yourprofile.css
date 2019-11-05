@@ -27,26 +27,26 @@
 }
 
 .profileHeader{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
     font-weight: bolder;
     color: #6792EF;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-align: center;
 }
 .profileInfo  {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #6792EF;
     text-align: center;
 }
 
 .addPharmacy{
-    background-color: #04267D !important;
-    border-color: #04267D !important;
-    margin-left: 138px;
-    margin-top: 15px;
+    background-color: #E7A6AF !important;
+    border-color: #E7A6AF !important;
+    margin-left: 20px;
     margin-bottom: 20px;
+    /* margin-top: -15px; */
 }
 .edit-pharmacy {
     background-color: #6792EF !important;
@@ -77,4 +77,9 @@
 .profileButtonsContainer{
     display: flex;
     justify-content: center;
+}
+
+.profileLine {
+    border-top: 4px solid #6792EF;
+    width: 100%;
 }

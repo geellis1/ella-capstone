@@ -63,6 +63,7 @@ class AppointmentCard extends Component {
         return (
             <>
                 <div className="appointment-card">
+                <div className="bg"></div>
                     <div className="card-content">
                     <div className="appointmentCardContent">
                         <h4 className="appointmentDetails">
@@ -115,6 +116,9 @@ class AppointmentCard extends Component {
                                 toggle={this.toggleEditModal}
                                 close={closeBtnEdit}>
                                 Edit Appointment
+                                <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
                                 <EditAppointmentForm {...this.props}
@@ -133,6 +137,9 @@ class AppointmentCard extends Component {
                                 toggle={this.toggleDetailsModal}
                                 close={closeBtnDetails}>
                                 View Appointment
+                                <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
                                 <ShowAppointmentDetails {...this.props}

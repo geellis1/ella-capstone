@@ -63,7 +63,7 @@ class ShowAppointmentDetails extends Component {
                 <ModalBody>
                     hello this is a modal test<br></br>
                     <h4>Date of Appointment></h4>{this.state.appointmentDate}
-                    <h1>Doctor Information</h1>
+                    <h3>Doctor Information</h3>
                     <h4>Name of Doctor</h4>{this.state.doctorName}
                     <h4>Type of Doctor</h4>{this.state.doctorName}
                     <h4>Office Location</h4>{this.state.officeAddress}

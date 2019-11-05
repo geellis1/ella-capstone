@@ -7,7 +7,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 22px;
     font-weight: bolder;
-    color: #21AABC !important;
+    color: #6792EF !important;
     text-transform: uppercase;
     margin-left: 20px;
     margin-top: 20px;
@@ -16,14 +16,15 @@
 .healthProfileInfo  {
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
-    color: #21AABC !important;
+    color: #6792EF!important;
     margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .healthProfileHeaderUpdate {
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
-    color: #21AABC !important;
+    color: #6792EF !important;
     font-style: italic;
     margin-left: 20px;
     margin-top: 20px;
@@ -51,7 +52,8 @@
     padding-right: 1px;
     align-content: center;
     margin-right: 12px;
-    margin-top: 14px;
+    margin-bottom: 10px;
+    /* margin-top: 14px; */
 }
 
 .fa-edit {
@@ -63,25 +65,25 @@
     padding-top: 10px;
     font-family: 'Open Sans', sans-serif;
     font-size: 22px;
-    color: #21AABC !important;
+    color: #6792EF !important;
 }
 
 .modal-footer {
-    border-top: 3px solid #21AABC !important;
+    border-top: 3px solid #6792EF !important;
 }
 
 .modal-header {
-    border-bottom: 3px solid #21AABC !important;
+    border-bottom: 3px solid #6792EF !important;
 }
 
 .btn-primary-health {
-    background-color: #21AABC !important;
-    border-color: #21AABC !important;
+    background-color: #6792EF !important;
+    border-color: #6792EF !important;
 }
 
 .cancel-health  {
-    background-color: #21AABC !important;
-    border-color: #21AABC !important;
+    background-color: #6792EF !important;
+    border-color: #6792EF !important;
     width: 50px;
     height: 30px;
 }
@@ -97,3 +99,73 @@
     text-align: center;
     margin-bottom: 10px;
 } */
+
+.bloodTypeContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.bloodIcon  {
+    width: 50px;
+    margin-left: 15px;
+}
+
+.heightTypeContainer  {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.heightIcon  {
+    width: 50px;
+    margin-left: 15px;
+}
+
+.weightTypeContainer  {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.weightIcon {
+    width: 50px;
+    margin-left: 15px;
+}
+
+.allergyTypeContainer  {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.allergyIcon {
+    width: 50px;
+    margin-left: 15px;
+}
+
+.profileCardLine {
+    border-top: 2px solid #6792EF;
+    width: 100%;
+}
+
+.healthProfileInfoDetails {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    color: #6792EF!important;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.dateAddProfileModal {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    color: #6792EF!important;
+}
+
+.bloodTypeDescriptions {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #6792EF!important;
+    margin-top: 10px;
+}

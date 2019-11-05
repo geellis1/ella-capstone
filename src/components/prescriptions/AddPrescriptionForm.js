@@ -61,24 +61,29 @@ class AddPrescriptionForm extends Component {
             <>
                 {" "}
                 <Button className="addPrescription" onClick={this.toggle}>
-                <i class="fas fa-plus fa-1x"></i>
+                    <i class="fas fa-plus fa-1x"></i>
                     Add Prescription</Button>
+                    <hr></hr>
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                     className={this.props.className}
                 >
                     <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        Create Prescription
-					</ModalHeader>
+                        <h1>Add New Prescription</h1>
+                        <picture>
+                            <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+                        </picture>
+                    </ModalHeader>
                     <ModalBody>
                         <form>
                             <fieldset>
                                 <div className="formgrid">
-                                    <label htmlFor="prescriptionName">
+                                    <label className="editHealth" htmlFor="prescriptionName">
                                         Prescription Name:
 									</label>
-                                    <input
+
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -86,9 +91,9 @@ class AddPrescriptionForm extends Component {
                                         id="prescriptionName"
                                         value={this.state.prescriptionName}
                                     />
+                                    <label className="editHealth" htmlFor="prescriptionDosage">Dosage Details</label>
 
-                                    <label htmlFor="prescriptionDosage">Dosage Details</label>
-                                    <input
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -97,8 +102,8 @@ class AddPrescriptionForm extends Component {
                                         value={this.state.prescriptionDosage}
                                     />
 
-                                    <label htmlFor="prescriptionDetails">Add your details:</label>
-                                    <input
+                                    <label className="editHealth" htmlFor="prescriptionDetails">Add your details:</label>
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -114,14 +119,14 @@ class AddPrescriptionForm extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button
-className="add"
+                            className="btn btn-primary-health"
                             onClick={this.addPrescription}
                         >
                             Add
 						</Button>{" "}
-                        <Button className="cancel" onClick={this.toggle}>
+                        {/* <Button className="cancel" onClick={this.toggle}>
                             Cancel
-						</Button>
+						</Button> */}
                     </ModalFooter>
                 </Modal>
             </>

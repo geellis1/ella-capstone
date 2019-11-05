@@ -105,6 +105,7 @@ render() {
     return (
         <>
             <div className="yourProfile-header">
+            <hr className="profileLine"></hr>
                 <div className="card-content">
                 <div className="headerTextProfile">
                     <h1 className="yourProfileHeaderText">your profile</h1>
@@ -123,7 +124,10 @@ render() {
                         <ModalHeader
                             toggle={this.toggle}
                             close={closeBtn}>
-                            Add Pharmacy Info
+                            <h1>Add Pharmacy Info</h1>
+                            <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                         <ModalBody>
                             <AddPharmacyForm {...this.props}
@@ -160,7 +164,10 @@ render() {
                         <ModalHeader
                             toggle={this.toggle}
                             close={closeBtn}>
-                            Edit Pharmacy Info
+                            <h1>Edit Pharmacy Info</h1>
+                            <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                         <ModalBody>
 

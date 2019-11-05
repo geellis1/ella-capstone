@@ -54,14 +54,14 @@ class PrescriptionList extends Component {
   render() {
     return (
       <>
-          <div className="prescription-header">
-            <h1>prescriptions</h1>
-          </div>
+        <div className="prescription-header">
+          <h1>prescriptions</h1>
+
 
           <AddPrescriptionForm {...this.props}
             getData={this.getData}
-          />
-          <hr></hr>
+          /></div>
+  
           {this.state.prescriptions.map(prescription => (
             <PrescriptionCard
               key={prescription.id}
@@ -75,7 +75,6 @@ class PrescriptionList extends Component {
               getData={this.getData}
             />
           ))}
-
       </>
     );
   }

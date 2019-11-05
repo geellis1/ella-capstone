@@ -91,6 +91,9 @@ class RecommendationCard extends Component {
                                 toggle={this.toggle}
                                 close={closeBtn}>
                                 Edit Recommendation
+                                <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
                                 <EditRecommendationForm {...this.props}
@@ -103,7 +106,6 @@ class RecommendationCard extends Component {
                         </Modal>
 
                     </div>
-                    <hr></hr>
                 </div>
             </>
         );
