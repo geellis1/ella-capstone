@@ -68,3 +68,8 @@ hr {
     display: flex;
     justify-content: center;
 }
+
+.btn-primary-recommendation {
+    background-color: #6792EF !important;
+    border-color: #6792EF !important;
+}

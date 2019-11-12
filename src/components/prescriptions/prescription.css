@@ -113,3 +113,14 @@
      background-color: white;
  }
 
+ .modalHeaders {
+    font-family: 'Poppins', sans-serif;
+    font-size: 27px;
+    font-weight: bolder;
+    color: #6792EF !important;
+ }
+ 
+.btn-primary-prescription {
+    background-color: #6792EF !important;
+    border-color: #6792EF !important;
+}

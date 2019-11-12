@@ -161,7 +161,7 @@ class HealthProfileCard extends Component {
                             <ModalHeader
                                 toggle={this.editToggle}
                                 close={closeBtn}>
-                                <h1>Edit Health Profile</h1>
+                                <h1 className="modalHeaders">Edit Health Profile</h1>
                                 <picture>
                                     <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
                                 </picture>

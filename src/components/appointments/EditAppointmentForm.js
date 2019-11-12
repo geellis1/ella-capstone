@@ -99,19 +99,12 @@ class EditAppointmentForm extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
-								<label className="editHealth" htmlFor="appointmentDate">
-									Date of Appointment:
-									</label>
-								<input className="health-input"
-									type="date"
-									required
-									className="form-control"
-									onChange={this.handleFieldChange}
-									id="appointmentDate"
-									value={this.state.appointmentDate} />
+
+
+								
 								<h2 className="modalSubHeader">Doctor Information</h2>
 
-								<label className="editHealth" htmlFor="doctorName">
+								<label className="addAppt" htmlFor="doctorName">
 									Name of Doctor:
 									</label>
 								<input className="health-input"
@@ -122,7 +115,7 @@ class EditAppointmentForm extends Component {
 									id="doctorName"
 									value={this.state.doctorName}
 								/>
-								<label className="editHealth" htmlFor="doctorName">
+								<label className="addAppt" htmlFor="doctorName">
 									Type of Doctor:
 									</label><br></br>
 								{this.state.doctors.length > 0 ? <select
@@ -137,7 +130,7 @@ class EditAppointmentForm extends Component {
 									)}
 								</select> : ""}
 								<br></br>
-								<label className="editHealth" htmlFor="officeAddress">Address</label>
+								<label className="addAppt" htmlFor="officeAddress">Address</label>
 								<input className="health-input"
 									type="text"
 									required
@@ -147,7 +140,7 @@ class EditAppointmentForm extends Component {
 									value={this.state.officeAddress}
 								/>
 							</div>
-							<label className="editHealth" htmlFor="doctorNotes">
+							<label className="addAppt" htmlFor="doctorNotes">
 								Notes about Doctor:
 									</label>
 							<input className="health-input"
@@ -157,8 +150,19 @@ class EditAppointmentForm extends Component {
 								onChange={this.handleFieldChange}
 								id="doctorNotes"
 								value={this.state.doctorNotes} />
-
-							<label className="editHealth" htmlFor="visitPurpose">
+<hr className="addApptModalLine"></hr>
+<h3 className="modalSubHeader">Appointment Details</h3>
+<label className="addAppt" htmlFor="appointmentDate">
+									Date of Appointment:
+									</label>
+								<input className="health-input"
+									type="date"
+									required
+									className="form-control"
+									onChange={this.handleFieldChange}
+									id="appointmentDate"
+									value={this.state.appointmentDate} />
+							<label className="addAppt" htmlFor="visitPurpose">
 								Purpose of Visit:
 									</label>
 							<input className="health-input"
@@ -170,7 +174,7 @@ class EditAppointmentForm extends Component {
 								value={this.state.visitPurpose} />
 
 
-							<label className="editHealth" htmlFor="testsRun">
+							<label className="addAppt" htmlFor="testsRun">
 								Tests Run:
 									</label>
 							<input className="health-input"
@@ -181,7 +185,7 @@ class EditAppointmentForm extends Component {
 								id="testsRun"
 								value={this.state.testsRun} />
 
-							<label className="editHealth" htmlFor="diagnosis">
+							<label className="addAppt" htmlFor="diagnosis">
 								Appointment diagnosis:
 									</label>
 							<input className="health-input"
@@ -192,7 +196,7 @@ class EditAppointmentForm extends Component {
 								id="diagnosis"
 								value={this.state.diagnosis} />
 
-							<label className="editHealth" htmlFor="prescriptionName">
+							<label className="addAppt" htmlFor="prescriptionName">
 								Prescription Name:
 									</label>
 							<input className="health-input"
@@ -204,7 +208,7 @@ class EditAppointmentForm extends Component {
 								value={this.state.prescriptionName}
 							/>
 
-							<label className="editHealth" htmlFor="prescriptionDosage">Dosage Details</label>
+							<label className="addAppt" htmlFor="prescriptionDosage">Dosage Details</label>
 							<input className="health-input"
 								type="text"
 								required
@@ -214,7 +218,7 @@ class EditAppointmentForm extends Component {
 								value={this.state.prescriptionDosage}
 							/>
 
-							<label className="editHealth" htmlFor="prescriptionDetails">Add your details:</label>
+							<label className="addAppt" htmlFor="prescriptionDetails">Add your details:</label>
 							<input className="health-input"
 								type="text"
 								required
@@ -224,7 +228,7 @@ class EditAppointmentForm extends Component {
 								value={this.state.prescriptionDetails}
 							/>
 
-							<label className="editHealth" htmlFor="diagnosis">
+							<label className="addAppt" htmlFor="diagnosis">
 								Appointment diagnosis:
 									</label>
 							<input className="health-input"
@@ -235,7 +239,7 @@ class EditAppointmentForm extends Component {
 								id="diagnosis"
 								value={this.state.diagnosis} />
 
-							<label className="editHealth" htmlFor="nextAppointment">
+							<label className="addAppt" htmlFor="nextAppointment">
 								Next Appointment Date:
 									</label>
 							<input className="health-input"
@@ -245,7 +249,7 @@ class EditAppointmentForm extends Component {
 								onChange={this.handleFieldChange}
 								id="nextAppointment"
 								value={this.state.nextAppointment} />
-							<label className="editHealth" htmlFor="appointmentNotes">
+							<label className="addAppt" htmlFor="appointmentNotes">
 								Appointment Notes:
 									</label>
 							<input className="health-input"
@@ -271,6 +275,7 @@ class EditAppointmentForm extends Component {
 						}}
 						className="btn btn-primary-appointment"
 					>
+					<i class="fas fa-check fa-1x"></i>
 						Submit
 					</Button>
 					<Button className="cancel" onClick={this.props.toggle}>

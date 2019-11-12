@@ -82,7 +82,7 @@ class AddRecommendationForm extends Component {
                     className={this.props.className}
                 >
                     <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        <h1>Create Recommendation</h1>
+                        <h1 className="modalHeaders">Create Recommendation</h1>
                         <picture>
                 <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
               </picture>

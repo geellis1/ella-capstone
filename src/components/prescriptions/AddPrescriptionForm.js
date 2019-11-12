@@ -70,9 +70,9 @@ class AddPrescriptionForm extends Component {
                     className={this.props.className}
                 >
                     <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        <h1>Add New Prescription</h1>
+                        <h1 className="modalHeaders">Add New Prescription</h1>
                         <picture>
-                            <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+                        <img className="editHealthProfileModalHeader" src={require("../../images/ella-prescription-modal header-01.png")} alt="ella logo" />
                         </picture>
                     </ModalHeader>
                     <ModalBody>

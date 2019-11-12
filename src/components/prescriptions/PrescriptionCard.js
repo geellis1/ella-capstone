@@ -91,9 +91,9 @@ console.log(this.props.prescriptionName)
                             <ModalHeader
                                 toggle={this.toggle}
                                 close={closeBtn}>
-                                <h1>Edit Prescription</h1>
+                                <h1 className="modalHeaders">Edit Prescription</h1>
                                 <picture>
-                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+                                <img className="editHealthProfileModalHeader" src={require("../../images/ella-prescription-modal header-01.png")} alt="ella logo" />
               </picture>
                             </ModalHeader>
                             <ModalBody>

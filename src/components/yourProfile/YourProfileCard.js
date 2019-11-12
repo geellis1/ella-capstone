@@ -15,6 +15,7 @@ class ProfileCard extends Component {
         pharmacy: {},
         pharmacyName: "",
         pharmacyNumber: "",
+        pharmacyDetails:"",
         userId: "",
         activeUserId: parseInt(sessionStorage.getItem("userId")),
         profileImageId: "",
@@ -44,7 +45,8 @@ class ProfileCard extends Component {
         this.setState({
             pharmacy: pharmacy[0],
             pharmacyName: pharmacy[0].pharmacyName,
-            pharmacyNumber: pharmacy[0].pharmacyNumber
+            pharmacyNumber: pharmacy[0].pharmacyNumber,
+            pharmacyDetails: pharmacy[0].pharmacyDetails
         })
     });
 
@@ -62,6 +64,7 @@ class ProfileCard extends Component {
                 newState.pharmacy = pharmacy[0]
                 newState.pharmacyName = pharmacy[0].pharmacyName
                 newState.pharmacyNumber = pharmacy[0].pharmacyNumber
+                newState.pharmacyDetails = pharmacy[0].pharmacyDetails
             }
             else{
                 return null
@@ -115,7 +118,8 @@ render() {
                     </div><br></br>
                     <h2 className="profileName">{activeUserName}</h2><br></br>
                     <h3 className="profileHeader">Your Pharmacy:</h3><h4 className="profileInfo">{this.state.pharmacyName}</h4><br></br>
-                    <h3 className="profileHeader">Pharmacy Number:</h3> <h4 className="profileInfo">{this.state.pharmacyNumber}</h4>
+                    <h3 className="profileHeader">Pharmacy Number:</h3> <h4 className="profileInfo">{this.state.pharmacyNumber}</h4><br></br>
+                    <h3 className="profileHeader">Pharmacy Details:</h3> <h4 className="profileInfo">{this.state.pharmacyDetails}</h4><br></br>
                     <Modal
                         isOpen={this.state.addModal}
                         toggle={this.addToggle}
@@ -124,9 +128,9 @@ render() {
                         <ModalHeader
                             toggle={this.toggle}
                             close={closeBtn}>
-                            <h1>Add Pharmacy Info</h1>
+                            <h1 className="modalHeaders">Add Pharmacy Info</h1>
                             <picture>
-                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+                            <img className="editHealthProfileModalHeader" src={require("../../images/ella-pharmacy-modal header-01.png")} alt="ella logo" />
               </picture>
                             </ModalHeader>
                         <ModalBody>
@@ -164,9 +168,9 @@ render() {
                         <ModalHeader
                             toggle={this.toggle}
                             close={closeBtn}>
-                            <h1>Edit Pharmacy Info</h1>
+                            <h1 className="modalHeaders">Edit Pharmacy Info</h1>
                             <picture>
-                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+                            <img className="editHealthProfileModalHeader" src={require("../../images/ella-pharmacy-modal header-01.png")} alt="ella logo" />
               </picture>
                             </ModalHeader>
                         <ModalBody>

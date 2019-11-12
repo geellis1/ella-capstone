@@ -109,12 +109,74 @@
 }
 
 .modalSubHeader {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    text-transform: uppercase;
+    color: #E7A6AF;
+}
+
+.doctorInfoIntroText  {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 22px !important;
+    text-transform: uppercase;
     color: #283676;
     margin-top: 20px;
 }
 
+.addAppt  {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; 
+    color:  #6792EF;
+    margin-top: 10px;
+}
+
+input {
+    resize: both !important;
+}
+
+.addApptModalLine  {
+    border-top: 3px solid #283676;
+    width: 100%;
+}
+
+.addNewAppt {
+    background-color: #E7A6AF !important;
+    border-color: #E7A6AF !important;
+    margin-left: 20px;
+}
+
+.cancel {
+    background-color: #F6C254 !important;
+    border-color: #F6C254 !important;
+    margin-left: 20px;
+}
+
+.apptDetailsHeader  {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px !important;
+    color: #6792EF;
+}
+
+.appointmentDetailsSubHeader {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    text-transform: uppercase;
+    color: #E7A6AF;
+}
+
+.apptDetailsInfoText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color:  #6792EF;
+    margin-bottom: 15px;
+}
+
+.appointmentDetailsModalLine {
+border-top: 1px dotted #E7A6AF;
+ width: 100%;
+}
+
 .btn-primary-appointment {
-    
+    background-color: #6792EF !important;
+    border-color: #6792EF !important;
 }

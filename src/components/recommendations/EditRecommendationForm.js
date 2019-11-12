@@ -70,6 +70,7 @@ class EditRecommendationForm extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
+							<label className="addAppt" htmlFor="nameOfDoctor">Name of Recommended Doctor</label>
 								<input
 									type="text"
 									required
@@ -78,8 +79,8 @@ class EditRecommendationForm extends Component {
 									id="nameOfDoctor"
 									value={this.state.nameOfDoctor}
 								/>
-								<label htmlFor="nameOfDoctor">Name of Recommended Doctor</label>
-
+								
+								<label className="addAppt" htmlFor="recommendationDetails">Details on Recommendation</label>
 								<input
 									type="text"
 									required
@@ -88,8 +89,8 @@ class EditRecommendationForm extends Component {
 									id="recommendationDetails"
 									value={this.state.recommendationDetails}
 								/>
-								<label htmlFor="recommendationDetails">Details on Recommendation</label>
-
+								
+								<label className="addAppt" htmlFor="personRecommended">Who made this recommendation?</label>
 								<input
 									type="text"
 									required
@@ -98,9 +99,8 @@ class EditRecommendationForm extends Component {
 									id="personRecommended"
 									value={this.state.personRecommended}
 								/>
-								<label htmlFor="personRecommended">Who made this recommendation?</label>
-
-								{this.state.doctors.doctorId > 0 ? <select
+								<label className="addAppt" htmlFor="typeOfDoctor">Type of Doctor</label><br></br>
+								{this.state.doctors.length > 0 ? <select
 									defaultValue={this.state.doctorId}
 									name="doctors"
 									id="doctorId"
@@ -124,8 +124,10 @@ class EditRecommendationForm extends Component {
 							this.updateExistingRecommendation(evt);
 							this.props.toggle();
 						}}
-						className="btn btn-primary"
+						className="btn btn-primary-recommendation"
 					>
+					<i class="fas fa-check fa-1x"></i>
+					
 						Submit
 					</Button>
 					<Button className="cancel" onClick={this.props.toggle}>

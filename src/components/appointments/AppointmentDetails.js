@@ -13,6 +13,7 @@ class ShowAppointmentDetails extends Component {
         visitPurpose: "",
         testsRun: "",
         diagnosis: "",
+        prescriptions: [],
         prescriptionName: "",
         prescriptionDosage: "",
         prescriptionDetails: "",
@@ -20,8 +21,7 @@ class ShowAppointmentDetails extends Component {
         appointmentNotes: "",
         id: [],
         doctors: [],
-        doctor: "",
-        doctorId: parseInt(1),
+        doctorId: "1",
         appointments: [],
         userId: "",
         modal: false,
@@ -36,65 +36,64 @@ class ShowAppointmentDetails extends Component {
         this.setState(stateToChange);
     };
 
-    componentDidMount() {
-        return APIManager.get("appointments", this.props.appointmentId)
-            .then(
-                appointment => {
-                    this.setState({
-                        appointmentNotes: appointment.appointmentNotes,
-                        appointmentDate: appointment.appointmentDate,
-                        doctorName: appointment.doctorName,
-                        officeAddress: appointment.officeAddress,
-                        doctorNotes: appointment.doctorNotes,
-                        visitPurpose: appointment.visitPurpose,
-                        testsRun: appointment.testsRun,
-                        diagnosis: appointment.diagnosis,
-                        prescriptionName: appointment.prescriptionName,
-                        prescriptionDosage: appointment.prescriptionDosage,
-                        prescriptionDetails: appointment.prescriptionDetails,
-                        nextAppointment: appointment.nextAppointment,
-                    });
-                });
-    };
+    // componentDidMount() {
+    //     return APIManager.get("appointments", this.props.appointmentId)
+    //         .then(appointment =>
+	// 			APIManager.getRecommendation("doctors", this.state.activeUserId).then(doctors => {
+    //                 this.setState({
+    //                     doctors: doctors,
+    //                     doctorId: appointment.doctorId,
+    //                     appointmentNotes: appointment.appointmentNotes,
+    //                     appointmentDate: appointment.appointmentDate,
+    //                     doctorName: appointment.doctorName,
+    //                     officeAddress: appointment.officeAddress,
+    //                     doctorNotes: appointment.doctorNotes,
+    //                     visitPurpose: appointment.visitPurpose,
+    //                     testsRun: appointment.testsRun,
+    //                     diagnosis: appointment.diagnosis,
+    //                     prescriptionName: appointment.prescriptionName,
+    //                     prescriptionDosage: appointment.prescriptionDosage,
+    //                     prescriptionDetails: appointment.prescriptionDetails,
+    //                     nextAppointment: appointment.nextAppointment,
+    //                 });
+    //             })
+    //         )
+    // };
 
     render() {
         return (
             <>
                 <ModalBody>
-                    hello this is a modal test<br></br>
-                    <h4>Date of Appointment></h4>{this.state.appointmentDate}
-                    <h3>Doctor Information</h3>
-                    <h4>Name of Doctor</h4>{this.state.doctorName}
-                    <h4>Type of Doctor</h4>{this.state.doctorName}
-                    <h4>Office Location</h4>{this.state.officeAddress}
-                    <h4>Notes About Doctor</h4>{this.state.doctorNotes}
-                    <h4>Purpose of Visit</h4>{this.state.visitPurpose}
-                    <h4>Tests Run</h4>{this.state.testsRun}
-                    <h4>Diagnosis</h4>{this.state.diagnosis}
-                    <h1>Appointment Prescriptions</h1>
-                    <h4>Prescription Name</h4>{this.state.prescriptionName}
-                    <h4>Dosage Details</h4>{this.state.prescriptionDosage}
-                    <h4>Prescription Details</h4>{this.state.prescriptionDetails}
-                    <h4>Next Appointment Date</h4>{this.state.nextAppointment}
-                    <h4>Additional Appointment Notes</h4>{this.state.appointmentNotes}
-				</ModalBody>
+    <section>
+                    <h3 className="appointmentDetailsSubHeader">Doctor Information</h3>
+                    <h4 className="apptDetailsHeader">Name of Doctor</h4><h5 className="apptDetailsInfoText">{this.props.doctorName}</h5>
+                    <h4 className="apptDetailsHeader">Type of Doctor</h4>
+                    <h5 className="apptDetailsInfoText">{this.props.doctorId}</h5>
+                    <h4 className="apptDetailsHeader">Office Location</h4><h5 className="apptDetailsInfoText">{this.props.officeAddress}</h5>
+                    <h4 className="apptDetailsHeader">Notes About Doctor</h4><h5 className="apptDetailsInfoText">{this.props.doctorNotes}</h5>
+                    <hr className="appointmentDetailsModalLine"></hr>
+                    <h3 className="appointmentDetailsSubHeader">Appointment Details</h3>
+                    <h4 className="apptDetailsHeader">Date of Appointment</h4><h5 className="apptDetailsInfoText">{this.props.appointmentDate}</h5>
+                    <h4 className="apptDetailsHeader">Purpose of Visit</h4><h5 className="apptDetailsInfoText">{this.props.visitPurpose}</h5>
+                    <h4 className="apptDetailsHeader">Tests Run</h4><h5 className="apptDetailsInfoText">{this.props.testsRun}</h5>
+                    <h4 className="apptDetailsHeader">Diagnosis</h4><h5 className="apptDetailsInfoText">{this.props.diagnosis}</h5>
+                    <h4 className="apptDetailsHeader">Next Appointment Date</h4><h5 className="apptDetailsInfoText">{this.props.nextAppointment}</h5>
+                    <h4 className="apptDetailsHeader">Additional Appointment Notes</h4><h5 className="apptDetailsInfoText">{this.props.appointmentNotes}</h5>
+                    <hr className="appointmentDetailsModalLine"></hr>
+                   <h3 className="appointmentDetailsSubHeader">Appointment Prescriptions</h3>
+                    <h4 className="apptDetailsHeader">Prescription Name</h4><h5 className="apptDetailsInfoText">{this.props.prescriptionName}</h5>
+                    <h4 className="apptDetailsHeader">Dosage Details</h4><h5 className="apptDetailsInfoText">{this.props.prescriptionDosage}</h5>
+                    <h4  className="apptDetailsHeader">Prescription Details</h4><h5 className="apptDetailsInfoText">{this.props.prescriptionDetails}</h5>
+                
+                    </section>
+                </ModalBody>
                 <ModalFooter>
-                    <Button
-                        type="button"
-                        disabled={this.state.loadingStatus}
-                        onClick={evt => {
-                            this.props.toggle(evt);
-                        }}
-                        className="btn btn-primary"
-                    >
-                        Submit
-					</Button>
                     <Button className="cancel" onClick={this.props.toggle}>
-                        Cancel
+                        Close Details
 					</Button>
                 </ModalFooter>
             </>
-        )
+        );
     }
 }
 

@@ -102,8 +102,9 @@ class EditPrescriptionForm extends Component {
 							this.updateExistingPrescription(evt);
 							this.props.toggle();
 						}}
-						className="btn btn-primary"
+						className="btn btn-primary-prescription"
 					>
+					<i class="fas fa-check fa-1x"></i>
 						Submit
 					</Button>
 					<Button className="cancel" onClick={this.props.toggle}>

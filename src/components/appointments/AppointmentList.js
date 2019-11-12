@@ -13,9 +13,28 @@ class AppointmentList extends Component {
    appointments: [],
    appointmentNotes: "",
    appointmentDate: "",
+   officeAddress: "",
+   doctorNotes: "",
+   visitPurpose: "",
+   testsRun: "",
+   diagnosis: "",
+   prescriptionName: "",
+   prescriptionDosage: "",
+   prescriptionDetails: "",
+   nextAppointment: "",
+   appointmentNotes: "",
    doctorName: "",
-   userId: "",
-   modal: false
+   doctor: "",
+   prescription: "",
+  doctorId: "1",
+  typeOfDoctor: "",
+  doctors: [],
+  prescriptions: [],
+  prescriptionName: "",
+  prescriptionDosage: "",
+  prescriptionDetails: "",
+  userId: "",
+  modal: false
   };
 
   activeUserId = parseInt(sessionStorage.getItem("userId"))
@@ -61,7 +80,6 @@ class AppointmentList extends Component {
       getData={this.getData}
       triggerRender =  {this.props.triggerRender}
      />
-  
 
         <div className="appointment-container-cards">
           {this.state.appointments.map(appointment => (
@@ -69,10 +87,21 @@ class AppointmentList extends Component {
               key={appointment.id}
               appointmentId={appointment.id}
               appointmentNotes={appointment.appointmentNotes}
+              officeAddress={appointment.officeAddress}
+              doctorNotes={appointment.doctorNotes}
+              visitPurpose={appointment.visitPurpose}
+              testsRun={appointment.testsRun}
+              diagnosis={appointment.diagnosis}
+              nextAppointment={appointment.nextAppointment}
               appointmentDate={appointment.appointmentDate}
               doctorName={appointment.doctorName}
+              doctorId={appointment.doctor.typeOfDoctor}
               userId={appointment.userId}
-             deleteAppointment={this.deleteAppointment}
+              prescriptionId={appointment.id}
+              prescriptionName={appointment.prescriptionName}
+              prescriptionDetails={appointment.prescriptionDetails}
+              prescriptionDosage={appointment.prescriptionDosage}
+              deleteAppointment={this.deleteAppointment}
              triggerRender =  {this.props.triggerRender}
               {...this.props}
               getData={this.getData}
