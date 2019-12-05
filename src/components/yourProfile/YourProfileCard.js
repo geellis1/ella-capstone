@@ -15,6 +15,7 @@ class ProfileCard extends Component {
         pharmacy: {},
         pharmacyName: "",
         pharmacyNumber: "",
+        pharmacyDetails:"",
         userId: "",
         activeUserId: parseInt(sessionStorage.getItem("userId")),
         profileImageId: "",
@@ -44,7 +45,8 @@ class ProfileCard extends Component {
         this.setState({
             pharmacy: pharmacy[0],
             pharmacyName: pharmacy[0].pharmacyName,
-            pharmacyNumber: pharmacy[0].pharmacyNumber
+            pharmacyNumber: pharmacy[0].pharmacyNumber,
+            pharmacyDetails: pharmacy[0].pharmacyDetails
         })
     });
 
@@ -62,6 +64,7 @@ class ProfileCard extends Component {
                 newState.pharmacy = pharmacy[0]
                 newState.pharmacyName = pharmacy[0].pharmacyName
                 newState.pharmacyNumber = pharmacy[0].pharmacyNumber
+                newState.pharmacyDetails = pharmacy[0].pharmacyDetails
             }
             else{
                 return null
@@ -105,14 +108,18 @@ render() {
     return (
         <>
             <div className="yourProfile-header">
+            <hr className="profileLine"></hr>
                 <div className="card-content">
+                <div className="headerTextProfile">
                     <h1 className="yourProfileHeaderText">your profile</h1>
-                    <picture>
+                    </div>
+                    <div className="yourProfileImage">
                         <img className="ellaProfileImg" src={this.state.profileImages.imgRoute} alt="ella logo" />
-                    </picture><br></br>
+                    </div><br></br>
                     <h2 className="profileName">{activeUserName}</h2><br></br>
                     <h3 className="profileHeader">Your Pharmacy:</h3><h4 className="profileInfo">{this.state.pharmacyName}</h4><br></br>
-                    <h3 className="profileHeader">Pharmacy Number:</h3> <h4 className="profileInfo">{this.state.pharmacyNumber}</h4>
+                    <h3 className="profileHeader">Pharmacy Number:</h3> <h4 className="profileInfo">{this.state.pharmacyNumber}</h4><br></br>
+                    <h3 className="profileHeader">Pharmacy Details:</h3> <h4 className="profileInfo">{this.state.pharmacyDetails}</h4><br></br>
                     <Modal
                         isOpen={this.state.addModal}
                         toggle={this.addToggle}
@@ -121,7 +128,10 @@ render() {
                         <ModalHeader
                             toggle={this.toggle}
                             close={closeBtn}>
-                            Add Pharmacy Info
+                            <h1 className="modalHeaders">Add Pharmacy Info</h1>
+                            <picture>
+                            <img className="editHealthProfileModalHeader" src={require("../../images/ella-pharmacy-modal header-01.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                         <ModalBody>
                             <AddPharmacyForm {...this.props}
@@ -132,7 +142,7 @@ render() {
                     </Modal>
                     <span className="card-profile-card-title"></span>
 
-                    <div>
+                    <div className="profileButtonsContainer">
 
                         {this.state.pharmacyName === "" ?
                             <Button className="addPharmacy" onClick={this.addToggle}>
@@ -158,7 +168,10 @@ render() {
                         <ModalHeader
                             toggle={this.toggle}
                             close={closeBtn}>
-                            Edit Pharmacy Info
+                            <h1 className="modalHeaders">Edit Pharmacy Info</h1>
+                            <picture>
+                            <img className="editHealthProfileModalHeader" src={require("../../images/ella-pharmacy-modal header-01.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                         <ModalBody>
 

@@ -82,16 +82,19 @@ class AddRecommendationForm extends Component {
                     className={this.props.className}
                 >
                     <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        Create Recommendation
+                        <h1 className="modalHeaders">Create Recommendation</h1>
+                        <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
 					</ModalHeader>
                     <ModalBody>
                         <form>
                             <fieldset>
                                 <div className="formgrid">
-                                    <label htmlFor="nameOfDoctor">
+                                    <label className="editHealth" htmlFor="nameOfDoctor">
                                         Doctor name:
 									</label>
-                                    <input
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -100,8 +103,8 @@ class AddRecommendationForm extends Component {
                                         value={this.state.nameOfDoctor}
                                     />
 
-                                    <label htmlFor="recommendationDetails">Details on Recommendation</label>
-                                    <input
+                                    <label className="editHealth" htmlFor="recommendationDetails">Details on Recommendation</label>
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -110,8 +113,8 @@ class AddRecommendationForm extends Component {
                                         value={this.state.recommendationDetails}
                                     />
 
-                                    <label htmlFor="personRecommended">Who recommended? </label>
-                                    <input
+                                    <label className="editHealth" htmlFor="personRecommended">Who recommended? </label>
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -119,6 +122,7 @@ class AddRecommendationForm extends Component {
                                         id="personRecommended"
                                         value={this.state.personRecommended}
                                     />
+                                    <label className="editHealth" htmlFor="typeOfDoctor">Type of Doctor</label><br></br>
                                     <select
                                         defaultValue="1"
                                         name="doctors"

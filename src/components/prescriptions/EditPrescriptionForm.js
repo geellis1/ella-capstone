@@ -61,7 +61,9 @@ class EditPrescriptionForm extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
-								<input
+							<label className="editHealth" htmlFor="prescriptionName">Name of Prescription</label>
+
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -69,9 +71,8 @@ class EditPrescriptionForm extends Component {
 									id="prescriptionName"
 									value={this.state.prescriptionName}
 								/>
-								<label htmlFor="prescriptionName">Name of Prescription</label>
-
-								<input
+								<label  className="editHealth" htmlFor="prescriptionDosage">Dosage Details</label>
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -79,9 +80,8 @@ class EditPrescriptionForm extends Component {
 									id="prescriptionDosage"
 									value={this.state.prescriptionDosage}
 								/>
-								<label htmlFor="prescriptionDosage">Dosage Details</label>
-
-								<input
+				<label className="editHealth" htmlFor="prescriptionDetails">Share details of prescription</label>
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -89,7 +89,6 @@ class EditPrescriptionForm extends Component {
 									id="prescriptionDetails"
 									value={this.state.prescriptionDetails}
 								/>
-								<label htmlFor="prescriptionDetails">Share details of prescription</label>
 							</div>
 							<div className="alignRight"></div>
 						</fieldset>
@@ -103,8 +102,9 @@ class EditPrescriptionForm extends Component {
 							this.updateExistingPrescription(evt);
 							this.props.toggle();
 						}}
-						className="btn btn-primary"
+						className="btn btn-primary-prescription"
 					>
+					<i class="fas fa-check fa-1x"></i>
 						Submit
 					</Button>
 					<Button className="cancel" onClick={this.props.toggle}>

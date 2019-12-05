@@ -46,14 +46,20 @@ console.log(this.props.prescriptionName)
             <>
                 <div className="prescription-card">
                     <div className="card-content">
-                        <h4>
-                        {this.props.prescriptionName}
-                        {this.props.prescriptionDosage}
-                        {this.props.prescriptionDetails}
-                        </h4>
+                    <section className="detailsCardImage">
+                    <div className="prescriptionIcon" id="grad">
+                    <i class="fas fa-prescription-bottle-alt fa-3x"></i>
+                    </div>
+                    <div className="prescriptionCardOutput">
+                        <h2 className="prescriptionHeader">Prescription Name:</h2><h3 className="prescriptionDetailsText">{this.props.prescriptionName}</h3>
+                        <h2 className="prescriptionHeader">Dosage Details:</h2><h3 className="prescriptionDetailsText">{this.props.prescriptionDosage}</h3>
+                        <h2 className="prescriptionHeader">Notes:</h2><h3 className="prescriptionDetailsText">{this.props.prescriptionDetails}</h3>
+                        </div>
+                        </section>
                         <div>
 
                                     <div>
+                                    <div className="prescriptionCardButtons">
                                         <button
                                             type="button" className="delete-prescription"
                                             onClick={() =>
@@ -73,6 +79,7 @@ console.log(this.props.prescriptionName)
                                             Edit
                                     </button>
                                     </div>
+                                    </div>
 
                         </div>
 
@@ -84,7 +91,10 @@ console.log(this.props.prescriptionName)
                             <ModalHeader
                                 toggle={this.toggle}
                                 close={closeBtn}>
-                                Edit Prescription
+                                <h1 className="modalHeaders">Edit Prescription</h1>
+                                <picture>
+                                <img className="editHealthProfileModalHeader" src={require("../../images/ella-prescription-modal header-01.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
 

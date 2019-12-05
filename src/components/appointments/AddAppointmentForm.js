@@ -47,8 +47,8 @@ class AddAppointmentForm extends Component {
     addAppointment = evt => {
         evt.preventDefault();
         this.toggle();
-        if (this.state.appointmentNotes === "") {
-            window.alert("Please input an appointment");
+        if (this.state.appointmentDate === "") {
+            window.alert("Please input an appointment date");
         } else {
             this.setState({ loadingStatus: true });
             const addedAppointment = {
@@ -120,28 +120,21 @@ class AddAppointmentForm extends Component {
                     className={this.props.className}
                 >
                     <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        Create Appointment
+                        <h1 className="modalHeaders">Log New Appointment</h1>
+                        <picture>
+                        <img className="editHealthProfileModalHeader" src={require("../../images/ella-appointment-modal-header-01.png")} alt="ella logo" />
+              </picture>
 					</ModalHeader>
                     <ModalBody>
                         <form>
                             <fieldset>
                                 <div className="formgrid">
-                                    <label htmlFor="appointmentDate">
-                                        Date of Appointment:
-									</label>
-                                    <input
-                                        type="date"
-                                        required
-                                        className="form-control"
-                                        onChange={this.handleFieldChange}
-                                        id="appointmentDate"
-                                        value={this.state.appointmentDate} />
-                                    <h2>Doctor Information</h2>
+                                    <h3 className="doctorInfoIntroText">Doctor Information</h3>
 
-                                    <label htmlFor="doctorName">
+                                    <label className="addAppt" htmlFor="doctorName">
                                         Name of Doctor:
 									</label>
-                                    <input
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -149,6 +142,9 @@ class AddAppointmentForm extends Component {
                                         id="doctorName"
                                         value={this.state.doctorName}
                                     />
+                                    <label className="addAppt" htmlFor="doctorType">
+                                        Type of Doctor:
+									</label><br></br>
                                     <select
                                         defaultValue="1"
                                         name="doctors"
@@ -159,9 +155,9 @@ class AddAppointmentForm extends Component {
                                                 {doctor.typeOfDoctor}
                                             </option>
                                         )}
-                                    </select>
-                                    <label htmlFor="officeAddress">Address</label>
-                                    <input
+                                    </select><br></br>
+                                    <label className="addAppt" htmlFor="officeAddress">Address</label>
+                                    <input className="health-input"
                                         type="text"
                                         required
                                         className="form-control"
@@ -170,21 +166,34 @@ class AddAppointmentForm extends Component {
                                         value={this.state.officeAddress}
                                     />
                                 </div>
-                                <label htmlFor="doctorNotes">
+                                <label className="addAppt" htmlFor="doctorNotes">
                                     Notes about Doctor:
 									</label>
-                                <input
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
                                     onChange={this.handleFieldChange}
                                     id="doctorNotes"
                                     value={this.state.doctorNotes} />
-
-                                <label htmlFor="visitPurpose">
-                                    Puprose of Visit:
+<hr className="addApptModalLine"></hr>
+<h3 className="doctorInfoIntroText">Appointment Details</h3>
+<label className="addAppt" htmlFor="appointmentDate">
+                                        Date of Appointment:
 									</label>
-                                <input
+                                    <input className="health-input"
+                                        type="date"
+                                        required
+                                        className="form-control"
+                                        onChange={this.handleFieldChange}
+                                        id="appointmentDate"
+                                        value={this.state.appointmentDate} />
+                                    
+                                    
+                                <label className="addAppt" htmlFor="visitPurpose">
+                                    Purpose of Visit:
+									</label>
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -193,10 +202,10 @@ class AddAppointmentForm extends Component {
                                     value={this.state.visitPurpose} />
 
 
-                                <label htmlFor="testsRun">
+                                <label className="addAppt" htmlFor="testsRun">
                                     Tests Run:
 									</label>
-                                <input
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -204,10 +213,10 @@ class AddAppointmentForm extends Component {
                                     id="testsRun"
                                     value={this.state.testsRun} />
 
-                                <label htmlFor="diagnosis">
+                                <label className="addAppt" htmlFor="diagnosis">
                                     Appointment diagnosis:
 									</label>
-                                <input
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -215,10 +224,10 @@ class AddAppointmentForm extends Component {
                                     id="diagnosis"
                                     value={this.state.diagnosis} />
 
-                                <label htmlFor="prescriptionName">
+                                <label className="addAppt" htmlFor="prescriptionName">
                                     Prescription Name:
 									</label>
-                                <input
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -227,8 +236,8 @@ class AddAppointmentForm extends Component {
                                     value={this.state.prescriptionName}
                                 />
 
-                                <label htmlFor="prescriptionDosage">Dosage Details</label>
-                                <input
+                                <label className="addAppt" htmlFor="prescriptionDosage">Dosage Details</label>
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -237,8 +246,8 @@ class AddAppointmentForm extends Component {
                                     value={this.state.prescriptionDosage}
                                 />
 
-                                <label htmlFor="prescriptionDetails">Prescription details:</label>
-                                <input
+                                <label className="addAppt" htmlFor="prescriptionDetails">Prescription details:</label>
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -248,20 +257,20 @@ class AddAppointmentForm extends Component {
                                 />
 
 
-                                <label htmlFor="nextAppointment">
+                                <label className="addAppt" htmlFor="nextAppointment">
                                     Next Appointment Date:
 									</label>
-                                <input
+                                <input className="health-input"
                                     type="date"
                                     required
                                     className="form-control"
                                     onChange={this.handleFieldChange}
                                     id="nextAppointment"
                                     value={this.state.nextAppointment} />
-                                <label htmlFor="appointmentNotes">
+                                <label className="addAppt" htmlFor="appointmentNotes">
                                     Appointment Notes:
 									</label>
-                                <input
+                                <input className="health-input"
                                     type="text"
                                     required
                                     className="form-control"
@@ -275,8 +284,9 @@ class AddAppointmentForm extends Component {
                         </form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button className="add"
-                            onClick={this.addAppointment}>Add
+                        <Button className="addNewAppt"
+                            onClick={this.addAppointment}>
+                            <i class="fas fa-plus fa-1x"></i>Add My Appointment
 						</Button>{" "}
                         <Button className="cancel" onClick={this.toggle}>
                             Cancel

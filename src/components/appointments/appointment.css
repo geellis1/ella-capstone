@@ -1,53 +1,78 @@
 .addAppointment {
-    background-color: #04267D !important;
-    border-color: #04267D !important;
+    background-color: #E7A6AF !important;
+    border-color: #E7A6AF !important;
     margin-left: 20px;
-    margin-top: 20px;
     margin-bottom: 20px;
+    margin-top: -15px;
 }
 
 .edit-appointment {
-    background-color: #21AABC !important;
-    border-color: #21AABC !important;
+    background-color: #6792EF !important;
+    border-color: #6792EF!important;
+    border-radius: 0.5em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px !important;
+    color: white !important;
     width: 90px;
     height: 40px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px !important;
-    color: white !important;
-    margin-left: 10px;
-    margin-right:  10px;
+    margin-left: 9px;
+    padding-right: 1px;
+    align-content: center;
+    margin-right: 12px;
 }
 
 .delete-appointment {
     background-color: #F6C254 !important;
     border-color: #F6C254 !important;
+    border-radius: 0.5em;
     font-family: 'Poppins', sans-serif;
-    font-size: 15px !important;
+    font-size: 14px !important;
     color: white !important;
     width: 90px;
     height: 40px;
+    padding-right: 10px;
+    align-content: center;
+    
+}
+.fa-trash-alt{
+    color: white;
+    margin-right: 4px;
+}
+
+.fa-edit {
+    color: white;
+    margin-right: 3px;
 }
 
 .appointment-card {
     background-color: #04267D;
+    /* background: rgba(2, 31, 127, 0.6); */
     border-radius: 1em;
     width: 230px;
     height: 150px;
     margin-left: 15px;
     margin-top: 15px;
     margin-bottom: 30px;
-    
+    position: relative;
+    z-index: 1;
+}
+
+.appointment-card  .bg  {
+    /* background: rgba(2, 31, 127, 0.1); */
+    position: absolute;
+    z-index: -1;
+    opacity: .4;
 }
 
 .view-appointment {
     border-radius: 50%;
-    background-color: #FCC1C5;
-    border-color: #FCC1C5 !important;
+    background-color: #E7A6AF;
+    border-color: #E7A6AF !important;
     width: 30px;
     height: 30px;
     margin-right: 10px;
     margin-left: 10px;
-    
+    margin-top: 5px;
 }
 
 .fa-info {
@@ -81,4 +106,77 @@
 
 .appointment-container-cards{
     display: flex;
+}
+
+.modalSubHeader {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    text-transform: uppercase;
+    color: #E7A6AF;
+}
+
+.doctorInfoIntroText  {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 22px !important;
+    text-transform: uppercase;
+    color: #283676;
+    margin-top: 20px;
+}
+
+.addAppt  {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; 
+    color:  #6792EF;
+    margin-top: 10px;
+}
+
+input {
+    resize: both !important;
+}
+
+.addApptModalLine  {
+    border-top: 3px solid #283676;
+    width: 100%;
+}
+
+.addNewAppt {
+    background-color: #E7A6AF !important;
+    border-color: #E7A6AF !important;
+    margin-left: 20px;
+}
+
+.cancel {
+    background-color: #F6C254 !important;
+    border-color: #F6C254 !important;
+    margin-left: 20px;
+}
+
+.apptDetailsHeader  {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px !important;
+    color: #6792EF;
+}
+
+.appointmentDetailsSubHeader {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    text-transform: uppercase;
+    color: #E7A6AF;
+}
+
+.apptDetailsInfoText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color:  #6792EF;
+    margin-bottom: 15px;
+}
+
+.appointmentDetailsModalLine {
+border-top: 1px dotted #E7A6AF;
+ width: 100%;
+}
+
+.btn-primary-appointment {
+    background-color: #6792EF !important;
+    border-color: #6792EF !important;
 }

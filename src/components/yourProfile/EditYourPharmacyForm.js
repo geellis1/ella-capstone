@@ -58,16 +58,16 @@ class EditPharmacyForm extends Component {
 					<form>
 						<fieldset>
 							<div className="formgrid">
-								<input
+							<label className="editHealth" htmlFor="pharmacyName">Name of Pharmacy</label>
+								<input className="health-input"
 									type="text"
 									className="form-control"
 									onChange={this.handleFieldChange}
 									id="pharmacyName"
 									defaultValue={this.state.pharmacyName}
 								/>
-								<label htmlFor="pharmacyName">Name of Pharmacy</label>
-
-								<input
+								<label className="editHealth" htmlFor="pharmacyNumber">Pharmacy Phone Number</label>
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -75,9 +75,8 @@ class EditPharmacyForm extends Component {
 									id="pharmacyNumber"
 									defaultValue={this.state.pharmacyNumber}
 								/>
-								<label htmlFor="pharmacyNumber">Pharmacy Phone Number</label>
-
-								<input
+<label className="editHealth" htmlFor="pharmacyDetails">Share details of pharmacy</label>
+								<input className="health-input"
 									type="text"
 									required
 									className="form-control"
@@ -85,7 +84,6 @@ class EditPharmacyForm extends Component {
 									id="pharmacyDetails"
 									defaultValue={this.state.pharmacyDetails}
 								/>
-								<label htmlFor="pharmacyDetails">Share details of pharmacy</label>
 							</div>
 							<div className="alignRight"></div>
 						</fieldset>
@@ -98,12 +96,10 @@ class EditPharmacyForm extends Component {
 							this.updateExistingPharmacy(evt);
 							this.props.toggle();
 						}}
-						className="btn btn-primary"
+						className="btn btn-primary-health"
 					>
+					<i class="fas fa-check fa-1x"></i>
 						Submit
-					</Button>
-					<Button className="cancel" onClick={this.props.toggle}>
-						Cancel
 					</Button>
 				</ModalFooter>
 			</>

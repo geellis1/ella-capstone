@@ -14,7 +14,7 @@ class RecommendationCard extends Component {
         recommendationDetails: "",
         personRecommended: "",
         doctors: [],
-        doctor: "",
+        // doctor: "",
         doctorId: "1",
         userId: "",
         modal: false
@@ -48,10 +48,10 @@ class RecommendationCard extends Component {
                 <div className="recommendation-card">
                     <div className="card-content">
                         <h4>
-                        {this.props.nameOfDoctor}
-                            {this.props.recommendationDetails}
-                            {this.props.personRecommended}
-                            {this.props.doctorId}
+                        <h2 className="prescriptionHeader">Doctor Name:</h2><h3 className="prescriptionDetailsText">{this.props.nameOfDoctor}</h3>
+                        <h2 className="prescriptionHeader">Recommendation Details:</h2><h3 className="prescriptionDetailsText">{this.props.recommendationDetails}</h3>
+                        <h2 className="prescriptionHeader">Who Recommended?:</h2> <h3 className="prescriptionDetailsText">{this.props.personRecommended}</h3>  
+                        <h2 className="prescriptionHeader">Type of Doctor:</h2><h3 className="prescriptionDetailsText">    {this.props.doctorId}</h3>  
                             <span className="card-messageTitle"></span>
                         </h4>
                         <div>
@@ -89,7 +89,10 @@ class RecommendationCard extends Component {
                             <ModalHeader
                                 toggle={this.toggle}
                                 close={closeBtn}>
-                                Edit Recommendation
+                                <h1 className="modalHeaders">Edit Recommendation</h1>
+                                <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/edithealthprofile.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
                                 <EditRecommendationForm {...this.props}

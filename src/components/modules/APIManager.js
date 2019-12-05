@@ -47,7 +47,7 @@ export default {
     return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
   },
   getUserAppointment(resource, userId) {
-    return fetch(`${remoteURL}/${resource}?userId=${userId}`).then(result => result.json())
+    return fetch(`${remoteURL}/${resource}?userId=${userId}&_expand=doctor`).then(result => result.json())
   },
   getUserRecommendation(resource, userId) {
     return fetch(`${remoteURL}/${resource}?userId=${userId}&_expand=doctor`).then(result => result.json())

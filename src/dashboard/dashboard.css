@@ -6,10 +6,11 @@ font-family: 'Poppins', sans-serif; */
 
 h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    color: #21AABC;
+    font-size: 12px;
+    color: #6792EF;
     padding-top: 20px;
     padding-left:20px;
+    padding-bottom: 20px;
 }
 
 h2 {
@@ -24,6 +25,7 @@ p {
 
 }
 .mainBody {
+    position: absolute;
     background-color: #fdf0f2;
     display: flex;
     flex-direction: row;
@@ -35,6 +37,7 @@ p {
 display: flex;
 flex-direction: row;
 width: 111%;
+max-height: 600px;
 }
 
 .rightSection {
@@ -42,33 +45,38 @@ width: 111%;
     flex-direction: column;
     background-color: white;
     width: 28%;
+    min-height: 200px;
 
 }
 
 .appointments-container {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 0.6em;
-    margin-left: 1em;
-    margin-top: 0.8em;
+    margin-left: 3em;
+    margin-top: 1em;
     margin-right: 0.6em;
     width: 101%;
     margin-bottom: 0.8em;
+    /* background-color: white; */
 }
 
 .healthProfile-container {
     background-color: white;
     border-radius: 0.6em;
     margin-left: 1em;
-    margin-left: 1em;
-    width: 50%;
+    margin-left: 3em;
+    min-width: 40%;
+    min-height: 600px;
+    max-height: 600PX;
 }
 
 .prescriptions-container {
     background-color: white;
-    border-radius: 0.6em;
-    margin-left: 0.6em;
-    margin-right: 0.6em;
-    width: 70%;
+    border-radius: 0.9em;
+    margin-left: 3.0em;
+    margin-right: 5em;
+    width: 42%;
+    max-height: 600px;
 }
 
 #grad {
@@ -80,12 +88,13 @@ background-color: #F6C254;
 margin-top: 0.8em;
 /* margin-right: 0.6em; */
 margin-bottom: 1em;
-border-radius: 0.6em;
-margin-left: 1em;
+border-radius: 0.9em;
+margin-left: 3em;
 height: 230px;
 display: flex;
 flex-direction: row;
-width: 109%
+width: 96%;
+padding-right: 70px;
 }
 
 .recommendations-container  {
@@ -106,7 +115,6 @@ border-radius: 0.6em;
     font-family: 'Poppins', sans-serif;
     font-size: 45px;
     color: white !important; 
-    padding-left: 20px;
     padding-top: 50px;
 }
 

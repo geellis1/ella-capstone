@@ -69,7 +69,7 @@ activeUserId = parseInt(sessionStorage.getItem("userId"))
     }
     render() {
         const closeBtn = (
-            <button className="close" onClick={this.toggle}>
+            <button className="close" onClick={this.props.addToggle}>
                 &times;
 				</button>
         );
@@ -79,17 +79,18 @@ activeUserId = parseInt(sessionStorage.getItem("userId"))
                 <form>
                     <fieldset>
                         <div className="formgrid">
-                            <h2>Today's Date: {this.state.dateUpdated}</h2>
-                            <input
+                            <h2 className="dateAddProfileModal">Today's Date: {this.state.dateUpdated}</h2>
+                            <label className="editHealth" htmlFor="bloodType">What is your blood type?</label>
+                            <input className="health-input"
                                 type="text"
                                 className="form-control"
                                 onChange={this.handleFieldChange}
                                 id="bloodType"
                                 defaultValue={this.state.bloodType}
                             />
-                            <label htmlFor="bloodType">What is your blood type?</label>
-
-                            <input
+                            <h5 className="bloodTypeDescriptions"><em>The 4 blood types are: A, B, AB, and O.</em></h5>
+                <label className="editHealth" htmlFor="height">what is your height?</label>
+                            <input className="health-input"
                                 type="text"
                                 required
                                 className="form-control"
@@ -97,9 +98,9 @@ activeUserId = parseInt(sessionStorage.getItem("userId"))
                                 id="height"
                                 defaultValue={this.state.height}
                             />
-                            <label htmlFor="height">what is your height?</label>
-
-                            <input
+                            
+                            <label className="editHealth" htmlFor="weight">what is your weight?</label>
+                            <input className="health-input"
                                 type="text"
                                 required
                                 className="form-control"
@@ -107,9 +108,9 @@ activeUserId = parseInt(sessionStorage.getItem("userId"))
                                 id="weight"
                                 defaultValue={this.state.weight}
                             />
-                            <label htmlFor="weight">what is your weight?</label>
-
-                            <input
+                            
+                            <label className="editHealth" htmlFor="allergies">What allergies do you have?</label>
+                            <input className="health-input"
                                 type="text"
                                 required
                                 className="form-control"
@@ -117,7 +118,7 @@ activeUserId = parseInt(sessionStorage.getItem("userId"))
                                 id="allergies"
                                 defaultValue={this.state.allergies}
                             />
-                            <label htmlFor="allergies">What allergies do you have?</label>
+                            
                         </div>
                         <div className="alignRight"></div>
                     </fieldset>
@@ -128,13 +129,13 @@ activeUserId = parseInt(sessionStorage.getItem("userId"))
                     type="button"
                     onClick={evt => {
                         this.addHealthProfile(evt);
-                        this.props.toggle();
+                        this.props.addToggle();
                     }}
                     className="btn btn-primary"
                 >
                     Add
                 </Button>{" "}
-                <Button className="cancel" onClick={this.toggle}>
+                <Button className="close" onClick={this.props.addToggle}>
                     Cancel
                 </Button>
             </ModalFooter>

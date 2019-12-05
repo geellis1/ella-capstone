@@ -15,11 +15,22 @@ class AppointmentCard extends Component {
 
    state = {
    appointments: [],
-   prescriptions: [],
+   officeAddress: "",
+   doctorNotes: "",
+   visitPurpose: "",
+   testsRun: "",
+   diagnosis: "",
+   prescriptionName: "",
+   prescriptionDosage: "",
+   prescriptionDetails: "",
+   nextAppointment: "",
    appointmentNotes: "",
+   prescriptions: [],
    appointmentDate: "",
    doctorName: "",
    userId: "",
+   doctors: [],
+   doctorId: "1",
    editModal: false,
    detailsModal: false
     };
@@ -63,19 +74,21 @@ class AppointmentCard extends Component {
         return (
             <>
                 <div className="appointment-card">
+                <div className="bg"></div>
                     <div className="card-content">
                     <div className="appointmentCardContent">
                         <h4 className="appointmentDetails">
                             {this.props.appointmentDate}<br></br>
-                            {this.props.doctorName}
-                            <span className="card-messageTitle"></span>
+                            {this.props.doctorName}<br></br>
+                            {this.props.doctorId}
+            
                         </h4>
                         </div>
                         <div>
                             {
                                 parseInt(this.props.userId) === (this.activeUserId) ?
                                     <div className="appointmentButtons">
-                                    <button type="button" className="view-appointment" data-toggle="tooltip" title="Hooray!"
+                                    <button type="button" className="view-appointment" data-toggle="tooltip" title="View more details"
                                             onClick={() => {
                                                 this.toggleDetailsModal()
                                             }}
@@ -114,7 +127,10 @@ class AppointmentCard extends Component {
                             <ModalHeader
                                 toggle={this.toggleEditModal}
                                 close={closeBtnEdit}>
-                                Edit Appointment
+                                <h1 className="modalHeaders">Edit Appointment</h1>
+                                <picture>
+                                <img className="editHealthProfileModalHeader" src={require("../../images/ella-appointment-modal-header-01.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
                                 <EditAppointmentForm {...this.props}
@@ -132,11 +148,15 @@ class AppointmentCard extends Component {
                             <ModalHeader
                                 toggle={this.toggleDetailsModal}
                                 close={closeBtnDetails}>
-                                View Appointment
+                                <h1>Appointment Details</h1>
+                                <picture>
+                <img className="editHealthProfileModalHeader" src={require("../../images/ella-appointment-modal-header-01.png")} alt="ella logo" />
+              </picture>
                             </ModalHeader>
                             <ModalBody>
                                 <ShowAppointmentDetails {...this.props}
                                     appointmentId={this.props.appointmentId}
+                                    prescriptionId={this.props.prescriptionId}
                                     getData={this.props.getData}
                                     toggle={this.toggleDetailsModal} />
                             </ModalBody>

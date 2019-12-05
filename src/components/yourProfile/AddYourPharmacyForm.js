@@ -86,7 +86,7 @@ class AddPharmacyForm extends Component {
                                         value={this.state.pharmacyName}
                                     />
 
-                                    <label htmlFor="pharmacyNumber">Dosage Details</label>
+                                    <label htmlFor="pharmacyNumber">Pharmacy Number</label>
                                     <input
                                         type="text"
                                         required
